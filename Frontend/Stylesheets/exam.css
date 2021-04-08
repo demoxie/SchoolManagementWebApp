@@ -1,0 +1,33 @@
+div.page {
+    column-count: 2;
+    column-rule: 1px;
+    column-gap: 100px;
+    column-span: all;
+    column-fill: balance;
+    columns: 100%;
+    column-rule-color: black;
+    column-rule-style: solid;
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.previous,
+.next {
+    background-color: #2d0b33;
+    color: white;
+    margin: auto;
+    display: inline-block;
+}
+
+.previous:hover,
+.next:hover {
+    color: white;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.btnContainer,
+ol {
+    display: block;
+}

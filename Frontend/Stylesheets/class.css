@@ -1,0 +1,49 @@
+.question-entry {
+    margin: 20px auto;
+    border: 1px solid #2D0B33;
+    border-radius: 10px;
+    background-color: rgb(255, 246, 255);
+    box-shadow: 0 1px px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: sans;
+    padding: 0;
+}
+
+
+.add-class {
+    margin: 30px auto;
+    background-color: #2D0B33;
+    color: whitesmoke;
+    display: block;
+
+}
+
+.form-label,
+.opt_input {
+    display: inline-block;
+    margin: 10px auto;
+}
+
+.form-header {
+    text-align: center;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.tophead {
+    width: 100%;
+    background-color: #2D0B33;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 0;
+}
+
+.head-container {
+    height: 25px;
+    background-color: darkslategray;
+    color: whitesmoke;
+    margin: 0;
+    padding: 30px;
+
+}
+

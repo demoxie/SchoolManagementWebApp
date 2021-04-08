@@ -1,0 +1,72 @@
+.container {
+    border: none;
+    margin: 0 auto;
+    font-family: arial, sans-serif;
+    padding: 0;
+}
+
+img {
+    margin: auto;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+
+}
+
+.btn-danger {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.information {
+    margin-left: 0;
+    margin-bottom: 50px;
+    margin-top: 0;
+}
+
+.row {
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+
+h5 {
+    font-family: helvetica, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+span {
+    margin-right: 0;
+}
+
+.block {
+    background-color: black;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block-content {
+    text-align: center;
+}
+
+.data {
+    padding: 5px;
+}
+
+.data-details {
+    border: none;
+    background: white;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.modal-header {
+    padding-top: 0;
+    margin-top: 0;
+}

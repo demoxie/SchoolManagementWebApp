@@ -1,0 +1,154 @@
+[
+  {
+    "ID": "0",
+    "Name": "----Choose State----"
+  },
+  {
+    "ID": "Abuja",
+    "Name": "Abuja"
+  },
+  {
+    "ID": "Abia",
+    "Name": "Abia"
+  },
+  {
+    "ID": "Adamawa",
+    "Name": "Adamawa"
+  },
+  {
+    "ID": "Anambra",
+    "Name": "Anambra"
+  },
+  {
+    "ID": "Akwa Ibom",
+    "Name": "Akwa Ibom"
+  },
+  {
+    "ID": "Bauchi",
+    "Name": "Bauchi"
+  },
+  {
+    "ID": "Bayelsa",
+    "Name": "Bayelsa"
+  },
+  {
+    "ID": "Benue",
+    "Name": "Benue"
+  },
+  {
+    "ID": "Borno",
+    "Name": "Borno"
+  },
+  {
+    "ID": "Cross River",
+    "Name": "Cross River"
+  },
+  {
+    "ID": "Delta",
+    "Name": "Delta"
+  },
+  {
+    "ID": "Ebonyi",
+    "Name": "Ebonyi"
+  },
+  {
+    "ID": "Edo",
+    "Name": "Edo"
+  },
+  {
+    "ID": "Ekiti",
+    "Name": "Ekiti"
+  },
+  {
+    "ID": "Enugu",
+    "Name": "Enugu"
+  },
+  {
+    "ID": "Gombe",
+    "Name": "Gombe"
+  },
+  {
+    "ID": "Imo",
+    "Name": "Imo"
+  },
+  {
+    "ID": "Jigawa",
+    "Name": "Jigawa"
+  },
+  {
+    "ID": "Kaduna",
+    "Name": "Kaduna"
+  },
+  {
+    "ID": "Kano",
+    "Name": "Kano"
+  },
+  {
+    "ID": "Katsina",
+    "Name": "Katsina"
+  },
+  {
+    "ID": "kebbi",
+    "Name": "Kebbi"
+  },
+  {
+    "ID": "Kogi",
+    "Name": "Kogi"
+  },
+  {
+    "ID": "Kwara",
+    "Name": "Kwara"
+  },
+  {
+    "ID": "Lagos",
+    "Name": "Lagos"
+  },
+  {
+    "ID": "Nassarawa",
+    "Name": "Nassarawa"
+  },
+  {
+    "ID": "Niger",
+    "Name": "Niger"
+  },
+  {
+    "ID": "Ogun",
+    "Name": "Ogun"
+  },
+  {
+    "ID": "Ondo",
+    "Name": "Ondo"
+  },
+  {
+    "ID": "Osun",
+    "Name": "Osun"
+  },
+  {
+    "ID": "Oyo",
+    "Name": "Oyo"
+  },
+  {
+    "ID": "Plateau",
+    "Name": "Plateau"
+  },
+  {
+    "ID": "Rivers",
+    "Name": "Rivers"
+  },
+  {
+    "ID": "Sokoto",
+    "Name": "Sokoto"
+  },
+  {
+    "ID": "Taraba",
+    "Name": "Taraba"
+  },
+  {
+    "ID": "Yobe",
+    "Name": "Yobe"
+  },
+  {
+    "ID": "Zamfara",
+    "Name": "Zamfara"
+  }
+]
