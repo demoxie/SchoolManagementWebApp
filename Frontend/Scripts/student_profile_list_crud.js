@@ -79,6 +79,31 @@ $(document).ready(function () {
             //confirm("Are you sure you want to delete the student record?")
 
         });
+        $('#class').change(function () {
+            let input, filter, table, tr, td, i, txtValue;
+            filter = $(this).find(':selected').text().toUpperCase();
+            //table = $("#stud_list_table");
+            tr = $('#stud_list_table tr');
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[4];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+
+                    } else {
+                        tr[i].style.display = "none";
+
+                    }
+                    if(i===tr.length-1){
+                        updateRowCount();
+
+                    }
+
+                }
+            }
+
+        });
 
     });
 
@@ -86,7 +111,8 @@ $(document).ready(function () {
         const table = document.getElementById("stud_list_table");
         const rowcountAfterDelete = document.getElementById("stud_list_table").rows.length;
         for (let i = 1; i < rowcountAfterDelete; i++) {
-            //table.rows[i].cells[0].innerHTML='';
+            table.rows[i].cells[0].innerHTML='';
+            //alert(i);
             table.rows[i].cells[0].innerHTML = i;
         }
     }
@@ -163,28 +189,7 @@ $(document).ready(function () {
         $('input').html(enteredtext);
     }
 
-    $('#class').change(function () {
-        let input, filter, table, tr, td, i, txtValue;
-        //input = document.getElementById("class");
-        filter = $(this).find(':selected').text().toUpperCase();
-        //table = $("#stud_list_table");
-        tr = $('#stud_list_table tr');
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[4];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
 
-            }
-
-        }
-        updateRowCount();
-
-    });
     $('#passport').click(function () {
         alert('ok');
     });

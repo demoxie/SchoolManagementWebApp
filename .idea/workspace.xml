@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32a05566-fdca-4a87-a004-34e7ba65155b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/check_fetch_result.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/combine_subject_forward_to_subject.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/daily_attedance_forward_to_attendance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/fetch_all_form_masters.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/fetch_calendar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/fetch_cs_subject.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/fetch_staffs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/fetch_status_by_class_and_session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/fetch_students_from_status.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_add_class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_add_formaster.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_change_status.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_delete_calendar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_school_add_calendar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_school_data.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_staffs_delete_formaster.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_subject_delete_cs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/search_fetch_staff.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/search_fetch_student.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/single_page_assessment_to_assessment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/ClassLibrary/weekly_attendance_forward_to_attendance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Src/Icons/rfc-logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Src/Icons/search-icon-png-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Src/uploads/school/6IFp2uye1SRxDgE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/Src/uploads/school/rfc-logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/database/calendar.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/database/combineSubject" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/database/combinedSubject.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dashboard/Tables/class/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dashboard/Tables/student/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dashboard/Tables/subject/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dashboard/Tables/teacher/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dashboard/dashboard.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dashboard/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dashboard/staffDashboard.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Analysis/try.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Class/formaster/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Class/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Class/status_changer/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/AUTHORS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/external/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/images/ui-icons_555555_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/images/ui-icons_777620_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/images/ui-icons_777777_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/images/ui-icons_cc0000_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/images/ui-icons_ffffff_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/jquery-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/jquery-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/jquery-ui.structure.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/jquery-ui.structure.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/jquery-ui.theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/jquery-ui.theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Pluggins/jquery-ui-1.12.1/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Result/students/result.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/School/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/add_calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/add_class.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/add_form_master.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/add_school_data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/cs_subject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/cs_submit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/dashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/fetch_class_status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/fetch_departments_again.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/fetch_session_for_result_checker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/fetch_session_status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/fetch_students_from_status.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/fetch_teachers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/search_class_rep.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/search_for_teachers_again.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/search_teachers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/submit_daily_attendance.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/submit_weekly_attendance.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Scripts/weekly_attedndance.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Stylesheets/dashboard_media_query.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Stylesheets/large_devices.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Stylesheets/media_queries.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Stylesheets/medium_devices.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Stylesheets/small_devices.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/Stylesheets/summerized_result.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smwa(1).sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/ClassLibrary/CodeGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ClassLibrary/CodeGenerator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/ClassLibrary/exams_forward_to_assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ClassLibrary/exams_forward_to_assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_subject.php" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ClassLibrary/forward_to_subject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Assessment/ca_entry_sheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Assessment/ca_entry_sheet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Assessment/termly_assessment_entry_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Assessment/termly_assessment_entry_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Dashboard/Tables/student/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/Jquery/jquery.smartmenus.bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/Jquery/jquery.smartmenus.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/Jquery/popover.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/Table/js/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/css/material-kit.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/img/bg3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/img/examples/studio-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/_drawer.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/_modal.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/_reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/_tooltip.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/bootstrap/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/bootstrap/scss/mixins/_hover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/bootstrap/scss/mixins/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/bootstrap/scss/mixins/_reset-text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/cards/_card-carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/plugins/_plugin-datetime-picker.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/material_kits/scss/material-kit/variables/_colors.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/materialize/css/materialize.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/animate.css/source/attention_seekers/heartBeat.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/animate.css/source/attention_seekers/jello.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/animate.css/source/attention_seekers/rubberBand.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/animate.css/source/fading_entrances/fadeInDown.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/animate.css/source/flippers/flipInX.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/animate.css/source/rotating_exits/rotateOutDownRight.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/.stylelintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/js/dist/alert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/js/dist/popover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/js/tests/unit/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/package.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/scss/_button-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/scss/_card.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/scss/_carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/scss/_tables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/scss/_tooltip.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/scss/_utilities.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/scss/mixins/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/scss/mixins/_grid-framework.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/about/translations.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/assets/brand/bootstrap-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/assets/img/favicons/android-chrome-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/assets/img/favicons/safari-pinned-tab.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/assets/js/vendor/anchor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/assets/scss/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/assets/scss/_masthead.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/components/buttons.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/examples/blog/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/examples/screenshots/starter-template.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/examples/screenshots/sticky-footer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/getting-started/download.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/getting-started/theming.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/layout/media-object.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/bootstrap/site/docs/4.1/utilities/spacing.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/dist/Chart.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/docs/general/interactions/events.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/samples/charts/area/line-boundaries.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/samples/charts/line/interpolation-modes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/src/controllers/controller.polarArea.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/src/platforms/platform.dom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/test/fixtures/controller.bar/bar-thickness-max.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/test/fixtures/controller.bar/bar-thickness-offset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/test/fixtures/plugin.filler/fill-line-boundary-origin-span.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/test/fixtures/plugin.filler/fill-line-boundary-origin-stepped.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/test/fixtures/plugin.filler/fill-line-boundary-start.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/test/jasmine.matchers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/test/specs/controller.polarArea.tests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chart.js/test/specs/element.point.tests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/chosen/chosen.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/datatables.net-bs4/css/dataTables.bootstrap4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/css/flag-icon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/ae.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/bb.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/cx.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/es-ct.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/gb-nir.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/gi.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/mm.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/ng.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/sk.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/th.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/tk.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/1x1/tn.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/au.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/ax.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/br.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/co.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/gy.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/is.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/jm.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/jp.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/km.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/ma.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/pn.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/re.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/sb.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/flags/4x3/se.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flag-icon-css/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flot/examples/ajax/data-eu-gdp-growth-5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flot/examples/axes-time-zones/tz/australasia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/flot/examples/axes-time-zones/tz/leapseconds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/font-awesome/css/font-awesome.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/font-awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gaugejs/assets/prettify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gaugejs/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gaugejs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gmaps/docs/GMaps.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gmaps/docs/gmaps.controls.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gmaps/examples/layers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gmaps/examples/map_types.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gmaps/examples/markers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gmaps/examples/overlay_map_types.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gmaps/examples/styled_maps.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gmaps/lib/gmaps.events.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/gmaps/lib/gmaps.static.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/dist/jquery-validation-sri.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/dist/localization/messages_bg.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/dist/localization/messages_hu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/dist/localization/messages_lt.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/dist/localization/messages_uk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/src/additional/maxfiles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/src/additional/mobileNL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/src/additional/require_from_group.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/src/localization/messages_az.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/src/localization/messages_my.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery-validation/src/localization/messages_sr_lat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery/external/sizzle/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery/src/core/access.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery/src/core/init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery/src/data/var/acceptData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery/src/data/var/dataPriv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery/src/manipulation/var/rtagName.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jquery/src/selector-sizzle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jqvmap/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jqvmap/dist/maps/jquery.vmap.canada.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jqvmap/examples/images/marker/purple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jqvmap/examples/images/marker/white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jqvmap/src/ColorScale/setMin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jqvmap/src/JQVMap/placePins.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jqvmap/src/VectorCanvas/setSize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jszip/documentation/api_streamhelper.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jszip/documentation/examples/get-binary-files-ajax.inc/jszip_utils.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jszip/documentation/examples/read-local-file-api.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jszip/lib/flate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/jszip/lib/generate/ZipFileWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/peity/test/fixtures/donut10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/peity/test/fixtures/donut13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/peity/test/fixtures/line3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/popper.js/dist/esm/popper.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/popper.js/docs/_includes/example10-code.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/popper.js/docs/_includes/example20t-code.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/popper.js/docs/css/ie8.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/popper.js/docs/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/popper.js/packages/bundle/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/popper.js/packages/popper/src/modifiers/preventOverflow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/popper.js/packages/popper/src/utils/getViewportOffsetRectRelativeToArtbitraryNode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/selectFX/css/cs-skin-overlay.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/selectFX/fonts/codropsicons/codropsicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Pluggins/vendors/selectFX/fonts/icomoon/icomoon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Result/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Result/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Result/individual_singlesubject_result_checker.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Result/individual_singlesubject_result_checker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Result/students/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Result/students/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Scripts/add_subject.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Scripts/add_subject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Scripts/assessment_form_entry.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Scripts/assessment_form_entry.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Scripts/caSheet_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Scripts/caSheet_table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Scripts/daily_attendance.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Scripts/daily_attendance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Scripts/search_for_teacher.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Scripts/search_for_teacher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Scripts/student_profile_list_crud.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Scripts/student_profile_list_crud.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Scripts/termly_assessment_form.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Scripts/termly_assessment_form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Scripts/verify_reg_code.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Scripts/verify_reg_code.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/Users/students/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/Users/students/list.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server id="fa889425-973b-4928-aaa7-2a4dffcaa390" name="Unnamed" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4.9" />
+  <component name="ProjectId" id="1loeErxDIPCzqleA2rgFtfKVyGi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="redshift&#10;mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
+    <property name="javascript.nodejs.core.library.configured.version" value="15.0.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.14.37" />
+    <property name="js.last.introduce.type" value="LET" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bin/php/php7.4.9/php7phpdbg.dll" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="sql.rename.search.for.storage.occurrences" value="true" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SchoolManagementWebApp\Backend\ClassLibrary" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\WAMP_SERVER\www\SchoolManagementWebApp\Frontend\Users\students" />
+      <recent name="C:\xampp\htdocs\SchoolManagementWebApp\Frontend\Exams" />
+      <recent name="C:\Users\HP\PhpstormProjects\SchoolManagementWebApp\Backend\database" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="oa0kv390qa9cj36r7tkkraupqb" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="3gcst25lc386oe4kofdrlhin5t" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost/SchoolManagementWebApp/Backend/ClassLibrary/fetch_teachers.php/search_keyword=s" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="127.0.0.1" />
+                <option name="name" value="PHPSESSID" />
+                <option name="path" value="/" />
+                <option name="value" value="oa0kv390qa9cj36r7tkkraupqb" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost/SchoolManagementWebApp/Backend/ClassLibrary/fetch_teachers.php/get" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="search_keyword" />
+                <option name="value" value="s" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://127.0.0.1/SchoolManagementWebApp/Backend/ClassLibrary/forward_to_fetch_students_list.php" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://127.0.0.1/../../Backend/ClassLibrary/forward_to_fetch_students_list.php" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XDEBUG_SESSION" />
+                <option name="path" value="/" />
+                <option name="value" value="19553" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost/../../Backend/ClassLibrary/forward_to_fetch_students_list.php" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost/../../Backend/ClassLibrary/forward_to_fetch_students_list.php" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost/../../Backend/ClassLibrary/fetch_teachers.php/get" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="search_keyword" />
+                <option name="value" value="s" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost/../../Backend/ClassLibrary/fetch_teachers.php" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost/../../Backend/ClassLibrary/fetch_teachers.php" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XDEBUG_SESSION" />
+                <option name="path" value="/" />
+                <option name="value" value="17178" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost/../../Backend/ClassLibrary/fetch_teachers.php" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XDEBUG_SESSION" />
+                <option name="path" value="/" />
+                <option name="value" value="18882" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost/../../Backend/ClassLibrary/fetch_teachers.php" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:80/../../Backend/ClassLibrary/fetch_teachers.php" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost/../../Backend/ClassLibrary/fetch_teachers.php" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="PHP Script.Upload.php">
+    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="ClassLibrary" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner coverage_engine="PHPDBG" directory="$PROJECT_DIR$/Backend/ClassLibrary" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Add_Question.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" editBeforeRun="true" singleton="false" path="$PROJECT_DIR$/Frontend/Exams/Questions/Add_Question.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <configuration name="Upload.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/Backend/ClassLibrary/Upload.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <configuration name="connection.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/Backend/server/connection.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="HTTP Request.All in generated-requests" />
+      <item itemvalue="HTTP Request.generated-requests#1" />
+      <item itemvalue="HTTP Request.generated-requests#2" />
+      <item itemvalue="PHP Script.Add_Question.php" />
+      <item itemvalue="PHP Script.connection.php" />
+      <item itemvalue="PHP Script.Upload.php" />
+      <item itemvalue="PHPUnit.ClassLibrary" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.Upload.php" />
+        <item itemvalue="HTTP Request.generated-requests#1" />
+        <item itemvalue="HTTP Request.generated-requests#2" />
+        <item itemvalue="HTTP Request.All in generated-requests" />
+        <item itemvalue="PHPUnit.ClassLibrary" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32a05566-fdca-4a87-a004-34e7ba65155b" name="Default Changelist" comment="" />
+      <created>1608267784983</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608267784983</updated>
+      <workItem from="1608267846736" duration="5416000" />
+      <workItem from="1608418706203" duration="660000" />
+      <workItem from="1608420150807" duration="3834000" />
+      <workItem from="1608446031966" duration="8059000" />
+      <workItem from="1608563838664" duration="1190000" />
+      <workItem from="1608705508003" duration="5468000" />
+      <workItem from="1608736863037" duration="1264000" />
+      <workItem from="1608945359576" duration="2328000" />
+      <workItem from="1609115861510" duration="2579000" />
+      <workItem from="1609121850919" duration="728000" />
+      <workItem from="1609779667365" duration="214000" />
+      <workItem from="1609966396444" duration="588000" />
+      <workItem from="1610125317800" duration="32854000" />
+      <workItem from="1610227922622" duration="22704000" />
+      <workItem from="1610318930683" duration="20019000" />
+      <workItem from="1610563955438" duration="16685000" />
+      <workItem from="1610626491571" duration="2133000" />
+      <workItem from="1610663624093" duration="34455000" />
+      <workItem from="1610906775179" duration="832000" />
+      <workItem from="1610910866056" duration="1561000" />
+      <workItem from="1610912645237" duration="2012000" />
+      <workItem from="1610927009768" duration="777000" />
+      <workItem from="1610966105821" duration="925000" />
+      <workItem from="1610968027787" duration="676000" />
+      <workItem from="1610973558625" duration="1508000" />
+      <workItem from="1610975607570" duration="1387000" />
+      <workItem from="1610977506810" duration="1567000" />
+      <workItem from="1610979855626" duration="580000" />
+      <workItem from="1610992480650" duration="1597000" />
+      <workItem from="1610995818888" duration="714000" />
+      <workItem from="1611009110460" duration="1749000" />
+      <workItem from="1611011292846" duration="11295000" />
+      <workItem from="1611082233147" duration="1053000" />
+      <workItem from="1611101379321" duration="533000" />
+      <workItem from="1611149121313" duration="1606000" />
+      <workItem from="1611156380233" duration="1599000" />
+      <workItem from="1611175374637" duration="1341000" />
+      <workItem from="1611178773993" duration="1387000" />
+      <workItem from="1611182720068" duration="1653000" />
+      <workItem from="1611184721721" duration="542000" />
+      <workItem from="1611215760715" duration="894000" />
+      <workItem from="1611224537793" duration="1516000" />
+      <workItem from="1611226559689" duration="1612000" />
+      <workItem from="1611229251502" duration="1635000" />
+      <workItem from="1611261223195" duration="1467000" />
+      <workItem from="1611264152340" duration="689000" />
+      <workItem from="1611266202218" duration="828000" />
+      <workItem from="1611300171007" duration="751000" />
+      <workItem from="1611302066488" duration="726000" />
+      <workItem from="1611304158753" duration="1630000" />
+      <workItem from="1611315052198" duration="1597000" />
+      <workItem from="1611351012681" duration="586000" />
+      <workItem from="1611395159457" duration="1618000" />
+      <workItem from="1611397020907" duration="1621000" />
+      <workItem from="1611401667248" duration="1776000" />
+      <workItem from="1611404467637" duration="1633000" />
+      <workItem from="1611406580874" duration="1782000" />
+      <workItem from="1611408781795" duration="1171000" />
+      <workItem from="1611433037635" duration="592000" />
+      <workItem from="1611436430064" duration="580000" />
+      <workItem from="1611515219485" duration="828000" />
+      <workItem from="1611523256524" duration="747000" />
+      <workItem from="1611572311575" duration="1482000" />
+      <workItem from="1611576400006" duration="1071000" />
+      <workItem from="1611578140359" duration="1665000" />
+      <workItem from="1611583404025" duration="1425000" />
+      <workItem from="1611585103274" duration="1678000" />
+      <workItem from="1611701415632" duration="1148000" />
+      <workItem from="1611703157344" duration="1078000" />
+      <workItem from="1611752238463" duration="1495000" />
+      <workItem from="1611754018080" duration="1552000" />
+      <workItem from="1611774264182" duration="596000" />
+      <workItem from="1611784725754" duration="1059000" />
+      <workItem from="1611787323889" duration="1246000" />
+      <workItem from="1611812488645" duration="647000" />
+      <workItem from="1611909939390" duration="1416000" />
+      <workItem from="1611912803952" duration="1289000" />
+      <workItem from="1611915957461" duration="1589000" />
+      <workItem from="1611931554179" duration="1014000" />
+      <workItem from="1611953215489" duration="1125000" />
+      <workItem from="1611993956313" duration="1595000" />
+      <workItem from="1611995959402" duration="1004000" />
+      <workItem from="1612015418893" duration="1608000" />
+      <workItem from="1612017744220" duration="1329000" />
+      <workItem from="1612019600011" duration="910000" />
+      <workItem from="1612025970855" duration="566000" />
+      <workItem from="1612158078518" duration="578000" />
+      <workItem from="1612280922109" duration="1413000" />
+      <workItem from="1612763292318" duration="258000" />
+      <workItem from="1612787791485" duration="15793000" />
+      <workItem from="1612829310482" duration="5002000" />
+      <workItem from="1613125535042" duration="8114000" />
+      <workItem from="1613207939998" duration="9969000" />
+      <workItem from="1613338131692" duration="7742000" />
+      <workItem from="1613403250424" duration="65924000" />
+      <workItem from="1613822721546" duration="6975000" />
+      <workItem from="1613911439872" duration="47549000" />
+      <workItem from="1614126405485" duration="30930000" />
+      <workItem from="1614275743832" duration="17416000" />
+      <workItem from="1614340298234" duration="37296000" />
+      <workItem from="1614446667816" duration="674000" />
+      <workItem from="1614456232418" duration="26592000" />
+      <workItem from="1614532538268" duration="43708000" />
+      <workItem from="1614634622705" duration="57550000" />
+      <workItem from="1614842248839" duration="36540000" />
+      <workItem from="1614949339689" duration="50822000" />
+      <workItem from="1615156517902" duration="12561000" />
+      <workItem from="1615215692630" duration="1881000" />
+      <workItem from="1615272663152" duration="3504000" />
+      <workItem from="1615305423856" duration="13810000" />
+      <workItem from="1615325051178" duration="24793000" />
+      <workItem from="1615443016950" duration="625000" />
+      <workItem from="1615446737053" duration="1560000" />
+      <workItem from="1615448501218" duration="1682000" />
+      <workItem from="1615450397006" duration="258000" />
+      <workItem from="1615461670284" duration="1893000" />
+      <workItem from="1615466572804" duration="1624000" />
+      <workItem from="1615475691334" duration="775000" />
+      <workItem from="1615477509850" duration="781000" />
+      <workItem from="1615479737741" duration="1608000" />
+      <workItem from="1615481926126" duration="1605000" />
+      <workItem from="1615484392240" duration="1311000" />
+      <workItem from="1615486371108" duration="1534000" />
+      <workItem from="1615501264200" duration="1580000" />
+      <workItem from="1615503866421" duration="1349000" />
+      <workItem from="1615542103771" duration="1490000" />
+      <workItem from="1615544522196" duration="955000" />
+      <workItem from="1615562506597" duration="548000" />
+      <workItem from="1615565002143" duration="511000" />
+      <workItem from="1615592961066" duration="1304000" />
+      <workItem from="1615646278900" duration="3657000" />
+      <workItem from="1615673066150" duration="977000" />
+      <workItem from="1615678955688" duration="1261000" />
+      <workItem from="1615724586700" duration="1620000" />
+      <workItem from="1615729213780" duration="550000" />
+      <workItem from="1615746966651" duration="1546000" />
+      <workItem from="1615832524519" duration="15131000" />
+      <workItem from="1615902539671" duration="6851000" />
+      <workItem from="1615958666296" duration="6189000" />
+      <workItem from="1615972128293" duration="1226000" />
+      <workItem from="1616072682005" duration="7608000" />
+      <workItem from="1616100606602" duration="950000" />
+      <workItem from="1616102757269" duration="1344000" />
+      <workItem from="1616223715950" duration="482000" />
+      <workItem from="1616239598420" duration="24578000" />
+      <workItem from="1616502545872" duration="11716000" />
+      <workItem from="1616517416054" duration="11934000" />
+      <workItem from="1616565890201" duration="48174000" />
+      <workItem from="1616761815260" duration="29974000" />
+      <workItem from="1616821894086" duration="72564000" />
+      <workItem from="1617046694374" duration="10091000" />
+      <workItem from="1617086867098" duration="21780000" />
+      <workItem from="1617143520865" duration="85549000" />
+      <workItem from="1617349028012" duration="49986000" />
+      <workItem from="1617569460018" duration="1928000" />
+      <workItem from="1617590526778" duration="18695000" />
+      <workItem from="1617660795365" duration="11530000" />
+      <workItem from="1617699256547" duration="29566000" />
+      <workItem from="1617740862908" duration="49712000" />
+      <workItem from="1617829748492" duration="2251000" />
+      <workItem from="1617834867545" duration="1695000" />
+      <workItem from="1617839689997" duration="60830000" />
+      <workItem from="1618004228398" duration="8156000" />
+      <workItem from="1618067587174" duration="35399000" />
+      <workItem from="1618193615680" duration="1156000" />
+      <workItem from="1618211673007" duration="41484000" />
+      <workItem from="1618381536123" duration="31653000" />
+      <workItem from="1618543597238" duration="29118000" />
+      <workItem from="1618619661799" duration="38291000" />
+      <workItem from="1618711988931" duration="16809000" />
+      <workItem from="1618774430957" duration="4044000" />
+      <workItem from="1618802702649" duration="64000" />
+      <workItem from="1618805513403" duration="535000" />
+      <workItem from="1618812814057" duration="642000" />
+      <workItem from="1618815432468" duration="1357000" />
+      <workItem from="1618823641682" duration="35545000" />
+      <workItem from="1618949044097" duration="36494000" />
+      <workItem from="1619076790026" duration="15950000" />
+      <workItem from="1619234969472" duration="1022000" />
+      <workItem from="1619266469737" duration="9235000" />
+      <workItem from="1619296059821" duration="33955000" />
+      <workItem from="1619627600038" duration="440000" />
+      <workItem from="1620246328089" duration="1635000" />
+      <workItem from="1620280992851" duration="988000" />
+      <workItem from="1620298972830" duration="1358000" />
+      <workItem from="1620300503058" duration="1144000" />
+      <workItem from="1620304434450" duration="2157000" />
+      <workItem from="1620306922896" duration="1529000" />
+      <workItem from="1620309019024" duration="1677000" />
+      <workItem from="1620310848032" duration="1702000" />
+      <workItem from="1620312746879" duration="1674000" />
+      <workItem from="1620315164809" duration="61000" />
+      <workItem from="1620333893427" duration="1418000" />
+      <workItem from="1620335974968" duration="586000" />
+      <workItem from="1620341245261" duration="1529000" />
+      <workItem from="1620344795237" duration="1394000" />
+      <workItem from="1620346550296" duration="1667000" />
+      <workItem from="1620348357532" duration="1669000" />
+      <workItem from="1620394607135" duration="1047000" />
+      <workItem from="1620398629940" duration="592000" />
+      <workItem from="1620400764492" duration="1698000" />
+      <workItem from="1620402627211" duration="1702000" />
+      <workItem from="1620404493917" duration="1703000" />
+      <workItem from="1620406388378" duration="1701000" />
+      <workItem from="1620408218810" duration="1701000" />
+      <workItem from="1620410118436" duration="808000" />
+      <workItem from="1620474536776" duration="824000" />
+      <workItem from="1620480834351" duration="1515000" />
+      <workItem from="1620482540972" duration="1208000" />
+      <workItem from="1620484520080" duration="1605000" />
+      <workItem from="1620486336900" duration="1673000" />
+      <workItem from="1620488178256" duration="1713000" />
+      <workItem from="1620490065889" duration="1704000" />
+      <workItem from="1620491920845" duration="1686000" />
+      <workItem from="1620493799028" duration="567000" />
+      <workItem from="1620507037208" duration="1547000" />
+      <workItem from="1620509564469" duration="1671000" />
+      <workItem from="1620512190842" duration="1671000" />
+      <workItem from="1620514005942" duration="1678000" />
+      <workItem from="1620563129505" duration="1571000" />
+      <workItem from="1620564887163" duration="1668000" />
+      <workItem from="1620566699899" duration="1692000" />
+      <workItem from="1620568527689" duration="1693000" />
+      <workItem from="1620570529800" duration="1663000" />
+      <workItem from="1620572332242" duration="1692000" />
+      <workItem from="1620574227952" duration="1701000" />
+      <workItem from="1620576159770" duration="1722000" />
+      <workItem from="1620578088402" duration="1689000" />
+      <workItem from="1620580024602" duration="1549000" />
+      <workItem from="1620589499249" duration="1696000" />
+      <workItem from="1620591345747" duration="1437000" />
+      <workItem from="1620594178461" duration="607000" />
+      <workItem from="1620597984487" duration="543000" />
+      <workItem from="1620600152341" duration="1663000" />
+      <workItem from="1620602142567" duration="1023000" />
+      <workItem from="1620604406576" duration="762000" />
+      <workItem from="1620640908294" duration="583000" />
+      <workItem from="1620644338709" duration="1965000" />
+      <workItem from="1620646482689" duration="1657000" />
+      <workItem from="1620648332087" duration="1739000" />
+      <workItem from="1620650132794" duration="2014000" />
+      <workItem from="1620660959977" duration="619000" />
+      <workItem from="1620662783987" duration="593000" />
+      <workItem from="1620664807570" duration="1216000" />
+      <workItem from="1620748150610" duration="1653000" />
+      <workItem from="1620750142450" duration="1690000" />
+      <workItem from="1620751932123" duration="1316000" />
+      <workItem from="1620814516847" duration="974000" />
+      <workItem from="1620818308759" duration="1579000" />
+    </task>
+    <task id="LOCAL-00001" summary="Commited by Shadrach Adamu 08-04-2021">
+      <created>1617850607076</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617850607076</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Commited by Shadrach Adamu 08-04-2021" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commited by Shadrach Adamu 08-04-2021" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Backend/ClassLibrary/forwardToSession.php</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Backend/ClassLibrary/forwardToTerm.php</url>
+          <line>1</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/Backend/ClassLibrary/fetch_departments.php</url>
+          <line>6</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Frontend/Scripts/index.js</url>
+          <line>27</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

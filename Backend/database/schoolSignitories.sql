@@ -1,0 +1,6 @@
+CREATE TABLE signitories(
+  signitoryID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  staffID INT(11) NOT NULL ,
+  signature VARCHAR(255) NOT NULL ,
+  roleID INT(11) NOT NULL
+);

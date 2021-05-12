@@ -1,0 +1,142 @@
+GET http://localhost/SchoolManagementWebApp/Backend/ClassLibrary/fetch_teachers.php/search_keyword=s
+
+<> 2021-03-08T085405.200.html
+
+###
+
+GET http://localhost/SchoolManagementWebApp/Backend/ClassLibrary/fetch_teachers.php/get?search_keyword=s
+
+<> 2021-03-08T085326.200.html
+
+###
+
+POST http://127.0.0.1/SchoolManagementWebApp/Backend/ClassLibrary/forward_to_fetch_students_list.php
+
+<> 2021-03-08T085221.200.html
+
+###
+
+POST http://127.0.0.1/../../Backend/ClassLibrary/forward_to_fetch_students_list.php
+
+<> 2021-03-08T085018.400.html
+
+###
+
+POST http://localhost/../../Backend/ClassLibrary/forward_to_fetch_students_list.php
+
+<> 2021-03-08T084946.400.html
+
+###
+
+POST http://localhost/../../Backend/ClassLibrary/forward_to_fetch_students_list.php
+
+<> 2021-03-08T084935.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php/get?search_keyword=s
+
+<> 2021-03-08T084737.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T084606.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+Accept: application/json
+
+<> 2021-03-08T084535.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+Accept: application/json
+
+<> 2021-03-08T084503.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T084331.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T084246.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T084239.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T084228.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T083309.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T083245.400.html
+
+###
+
+GET http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T083237.400.html
+
+###
+
+GET http://localhost:80/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T083213.400.html
+
+###
+
+GET http://localhost:8080/../../Backend/ClassLibrary/fetch_teachers.php
+
+###
+
+GET http://localhost:8080/../../Backend/ClassLibrary/fetch_teachers.php
+
+###
+
+POST http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T083128.400.html
+
+###
+
+POST http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T082957.400.html
+
+###
+
+POST http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T082933.400.html
+
+###
+
+POST http://localhost/../../Backend/ClassLibrary/fetch_teachers.php
+
+<> 2021-03-08T082850.400.html
+
+###
+

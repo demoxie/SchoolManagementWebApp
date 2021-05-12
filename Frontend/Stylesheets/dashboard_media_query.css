@@ -1,0 +1,336 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 0.8em;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+
+}
+
+a:visited {
+    color: white;
+}
+
+.side_btn_container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 4em;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#school_logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    padding: 1px;
+    object-fit: cover;
+    margin-bottom: 1em;
+    border: 2px double white;
+    border-spacing: inherit;
+}
+
+#logo_container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+    padding: 0;
+}
+
+#school_name {
+    margin-bottom: 0.8rem;
+}
+
+.side_bar_buttons {
+    margin-right: 0;
+    text-align: left;
+    text-decoration: none;
+    transition: 1s ease;
+    text-indent: 1.5em;
+}
+
+.side_icons,
+.side_bar_buttons {
+    width: 50%;
+    color: white;
+}
+
+.side_icons {
+    margin-right: 0.8em;
+    margin-left: 1em;
+}
+
+a:active,
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: white;
+
+    /* Lowering the shadow */
+}
+
+
+.container-fluid {
+    padding: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100vh;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 100px) and (max-width: 600px) {
+
+    #side_bar {
+        overflow: hidden;
+        height: auto;
+        display: none;
+        align-content: space-around;
+        flex-flow: column nowrap;
+        background: #062c33;
+
+    }
+
+    #right_side {
+        width: 100%;
+        height: auto;
+        background: wheat;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    #top_bar {
+        width: 100%;
+        height: 12vh;
+        background: #062c33;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        float: right;
+        -webkit-box-shadow: 0 10px 6px -6px #777;
+        -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
+    }
+
+    #main_body {
+        width: 100%;
+        overflow-y: auto;
+        background: #C8E6C9;
+        height: 88vh;
+    }
+
+    #profile_check {
+        width: 9rem;
+        height: 4rem;
+        display: flex;
+        flex-flow: row wrap;
+        float: right;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 0.7rem;
+    }
+
+    #profile {
+        padding: 0;
+        display: none;
+    }
+
+    #user_name,
+    #user_type,
+    #login {
+        display: block;
+        margin-top: 0;
+        margin-bottom: 0;
+        cursor: pointer;
+
+    }
+
+    #user_type {
+        border: 1px solid orangered;
+        border-radius: 1rem;
+        padding: 0.06rem 0.7rem;
+    }
+
+    #profile_pic {
+        width: 4.5em;
+        height: 4.5em;
+        border-radius: 50%;
+        object-fit: contain;
+        border: 1px solid white;
+        padding: 0.2em;
+        cursor: pointer;
+    }
+
+    .side_bar_buttons {
+        width: 90%;
+        color: white;
+        margin-top: 10px;
+        margin-right: 0;
+        float: right;
+        text-decoration: none;
+        padding: 10px;
+        transition: 1s ease;
+
+    }
+
+    .side_bar_buttons:active,
+    .side_bar_buttons:hover,
+    .side_bar_buttons:focus {
+        text-decoration: none;
+        color: white;
+        transform: scale(0.98);
+        opacity: 0.9;
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+
+        /* Lowering the shadow */
+    }
+
+    #side_drawer {
+        color: white;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+
+    #side_drawer:hover {
+        opacity: 0.7;
+    }
+
+    #title {
+        margin-top: 3em;
+        margin-bottom: 3em;
+        border-top-left-radius: 1.5em;
+        border-bottom-left-radius: 1.5em;
+        padding-left: 20px;
+        background: white;
+        color: #062c33;
+        -webkit-box-shadow: 0 10px 6px -6px #777;
+        -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
+    }
+
+
+    #search_input {
+        border-radius: 2em;
+        border: 0.1em solid orangered;
+        padding: 0.2rem 0.5rem;
+        width: 7rem;
+        background-color: white;
+        background-image: url('../../Backend/Src/Icons/search-icon-png-2.png');
+        background-position: 8px 5px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+    #search_input:active,
+    #search_input:focus {
+        outline: none;
+        width: 100%;
+    }
+
+    #search_input::placeholder {
+        padding-left: 2em;
+    }
+
+    #search_icon {
+        position: absolute;
+        top: 2.3em;
+        right: 44.5em;
+    }
+
+    #tiles_container {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        overflow: hidden;
+        align-items: center;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tiles {
+        width: 95%;
+        height: 12em;
+        background: white;
+        display: flex;
+        flex-flow: column;
+        text-align: center;
+        margin-top: 1.5em;
+
+    }
+
+    .tiles:hover {
+        opacity: 0.8;
+        transition: opacity 0.6s;
+        transform: scale(0.98);
+        /* Scaling button to 0.98 to its original size */
+        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+        /* Lowering the shadow */
+
+    }
+
+    .tiles h6 {
+        margin-bottom: 2em;
+        margin-top: 1.5em;
+        text-align: center;
+        color: darkgreen;
+        font-weight: bold;
+    }
+
+    .tiles {
+        color: #062c33;
+    }
+
+    .tiles-icon {
+        color: orangered;
+        text-align: center;
+        margin: auto;
+    }
+
+    #page_window {
+        width: 95%;
+        height: 300px;
+        background: white;
+        padding-right: 1em;
+        padding-left: 1.7em;
+        display: flex;
+        flex-flow: row wrap;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.7em;
+        align-content: space-around;
+    }
+
+
+}

@@ -6,10 +6,10 @@ $(document).ready(function () {
         if ($.trim($('#code_input').val()) === '') {
             alert('please enter Registration code');
         } else {
-            $("#admission_processing_form").trigger('submit');
+            $("#result_check_form").trigger('submit');
         }
     });
-    $("#admission_processing_form").on("submit", function (e) {
+    $("#result_check_form").on("submit", function (e) {
         e.preventDefault();
         $.ajax({
             url: "../../../Backend/ClassLibrary/forward_to_Student_to_verify_reg_code.php",

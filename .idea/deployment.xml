@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Wamp Server" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Wamp Server">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/SchoolManagementWebApp" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

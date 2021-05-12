@@ -1,0 +1,7 @@
+CREATE TABLE classReps(
+    classRepID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    classRepName VARCHAR(40) NOT NULL ,
+    admissionNO VARCHAR(40) NOT NULL ,
+    classID INT(11) NULL ,
+    dateAdded DATETIME NOT NULL
+);

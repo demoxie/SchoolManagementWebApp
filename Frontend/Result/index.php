@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>Main</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../Pluggins/Bootstrap/css/bootstrap.min.css">
@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="../Pluggins/awesome/css/all.min.css">
     <script src="../Pluggins/awesome/js/fontawesome.min.js"></script>
     <script src="../Pluggins/awesome/js/all.min.js"></script>
-    <script src="../Pluggins/Jquery/jquery-3.5.1.min.jsjquery.min.js"></script>
-    <script src="../Pluggins/Jquery/popper.min.js"></script>
+    <script src="../Pluggins/Jquery/jquery-3.5.1.min.js"></script>
     <script src="../Pluggins/Bootstrap/js/bootstrap.min.js"></script>
     <style>
         * {

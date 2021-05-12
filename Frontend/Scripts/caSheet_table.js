@@ -14,7 +14,6 @@ $(document).ready(function () {
             processData: false,
             success: function (data) {
                 const ret = JSON.parse(data);
-                // alert(data);
                 let i;
                 let index;
                 $("tbody").empty();
@@ -27,8 +26,8 @@ $(document).ready(function () {
                 function makeRows(i, index) {
 
                     $(`<tr>
-                     <td><input class="form-control serial_number" value="${index}" disabled style="border-style: none;background-color:white;" type="text"></td>
-                     <td><input class="form-control names" name="${ret[i].studentID}" readonly="readonly" style="border-style: none;background-color:white;font-size: 10px;font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif" value="${ret[i].name}" type="text"></td>
+                     <td><input class="form-control serial_number" value="${index}" disabled  type="text"></td>
+                     <td><input class="form-control names" name="${ret[i].studentID}" readonly="readonly" value="${ret[i].name}" type="text"></td>
                      <td><input class="form-control first_ca" type="text" value="" name="1st_ca"></td>
                      <td><input class="form-control second_ca" type="text" value="" name="2nd_ca"></td>
                      <td><input class="form-control third_ca" type="text" value="" name="3rd_ca"></td>

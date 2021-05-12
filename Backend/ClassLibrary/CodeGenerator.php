@@ -116,7 +116,7 @@ class CodeGenerator extends Db
         }
     }
 
-    public static function addOrdinalNumberSuffix($num)
+    public static function addOrdinalSuffix($num)
     {
         if (!in_array(($num % 100), array(11, 12, 13))) {
             switch ($num % 10) {

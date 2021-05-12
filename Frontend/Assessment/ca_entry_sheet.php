@@ -25,8 +25,10 @@
             text-indent: 0;
         }
 
-        html {
-            font-size: 14px;
+        body {
+            font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
         }
 
         .upper-save, .upper-calculate {
@@ -40,14 +42,12 @@
         input:active,
         textarea:focus,
         input:focus,
-        .close,
-        .try_again,
-        .back,
         .btn:active,
         .btn:focus,
         {
+            
+            -webkit-appearance: none !important;
             outline: 0 !important;
-            -webkit-appearance: none;
             box-shadow: none !important;
         }
 
@@ -66,8 +66,9 @@
             align-content: center;
         }
 
-        .btn {
+        .btn,input {
             background-color: darkgreen;
+            color: white;
         }
 
         li a.page-link {
@@ -121,12 +122,12 @@
     <hr>
 
     <div class="row">
-        <button type="button" class="btn btn-primary  upper-calculate col-2">Calculate</button>
-        <button type="button" class="btn btn-primary upper-save col-2">Save</button>
+        <button type="button" class="btn  upper-calculate col-2">Calculate</button>
+        <button type="button" class="btn upper-save col-2">Save</button>
     </div>
     <hr>
     <div class="theading row col-12">
-        <div class="search col-3"><label for="search"></label>
+        <div class="search col-3">
             <input type="text" class="form-control" id="search" name="search" placeholder="Search Names">
             <br>
         </div>
@@ -145,7 +146,7 @@
         <table class="table table-hover table-bordered" id="ca_table">
             <thead>
             <tr style="background-color: forestgreen;color: whitesmoke;">
-                <th class="thed" style="width:15px">S/N</th>
+                <th class="thed">#</th>
                 <th class="th_names">NAMES</th>
                 <th class="th_ca1">1st CA</th>
                 <th class="th_ca2">2nd CA</th>
@@ -170,8 +171,8 @@
         </ul>
     </div>
     <hr>
-    <button type="button" class="btn btn-primary calculate col-2">Calculate</button>
-    <button type="button" class="btn btn-primary save col-2">Save</button>
+    <button type="button" class="btn calculate col-2">Calculate</button>
+    <button type="button" class="btn save col-2">Save</button>
 
 
 </form>

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(".items").click(function () {
+    $(".side_bar_buttons").click(function () {
         let choice = $(this).text();
         $("#subject_teacher").val(choice);
     });

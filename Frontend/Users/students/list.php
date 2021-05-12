@@ -288,7 +288,7 @@
         </select>
 
     </div>
-    <div class="table-responsive">
+
         <div class="table-wrapper">
 
             <div class="table-title">
@@ -318,6 +318,7 @@
                     </div>
                 </div>
             </div>
+            <div class="table-responsive">
             <table class="table table-bordered" id="stud_list_table">
                 <thead>
                 <tr>
@@ -334,6 +335,7 @@
 
                 </tbody>
             </table>
+            </div>
             <div class="clearfix">
                 <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                 <ul class="pagination">
@@ -348,7 +350,6 @@
             </div>
         </div>
     </div>
-</div>
 
 
 <!-- The Modal -->
@@ -516,7 +517,7 @@
     </div>
 </div>
 
-</div>
+
 
 
 <!-- Modal HTML -->

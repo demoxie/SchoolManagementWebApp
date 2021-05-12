@@ -1,0 +1,32 @@
+CREATE TABLE students
+(
+    studentID INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name TEXT(150) NOT NULL,
+    dateOfBirth DATE NOT NULL ,
+    gender VARCHAR(11) NOT NULL ,
+    healthStatus VARCHAR(20) NOT NULL ,
+    age_as_at_last_Birthday INT(3) NOT NULL ,
+    address TEXT(255) NOT NULL ,
+    nameOfLastSchoolAttended TEXT(100) NULL ,
+    lastClass VARCHAR(15) NULL ,
+    presentClass VARCHAR(15) NULL ,
+    positionObtained INT(5) NULL ,
+    signature VARCHAR(100) NULL ,
+    guardianName TEXT(150) NOT NULL ,
+    guardianOfficeAddress TEXT(150) NULL ,
+    guardianEmail VARCHAR(200) NULL ,
+    guardianPhone VARCHAR(15) NULL ,
+    guardianPostalAddress TEXT(150) NULL ,
+    guardianResidentialAddress TEXT(150) NOT NULL ,
+    stateOfOrigin TEXT(100) NOT NULL ,
+    L_G_A TEXT(100) NOT NULL ,
+    religion TEXT(15) NOT NULL ,
+    Denomination TEXT(50) NULL ,
+    emotionalBehavior TEXT(200) NULL ,
+    socialBehavior TEXT(200) NULL ,
+    spiritualBehavior TEXT(200) NULL ,
+    admissionNO VARCHAR(40) NULL ,
+    testScore DECIMAL(11) NULL ,
+    qualificationStatus VARCHAR(15) NULL
+
+);

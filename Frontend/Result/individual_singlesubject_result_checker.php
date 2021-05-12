@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -40,7 +39,7 @@
             width: 150px;
             height: 150px;
             object-fit: contain;
-            margin-left: 0;
+            marg in-left: 0;
             margin-top: 0;
         }
     </style>

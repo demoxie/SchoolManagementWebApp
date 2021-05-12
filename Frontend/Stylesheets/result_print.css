@@ -1,0 +1,162 @@
+@media print {
+          * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+            font-size: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            width: 99vw;
+            height: auto;
+            border: 1px solid black;
+            margin-top: 0.5em;
+            padding: 0;
+        }
+        table{
+            width: 100%;
+            height: auto;
+            margin: auto;
+            font-size: 0.65em;
+            font-weight: bold;
+            overflow: hidden;
+            border-collapse: collapse;
+            table-layout: fixed;
+            border-left: none;
+        }
+        table tr:last-of-type:not(:first-of-type){
+            border-bottom: none;
+        }
+        table:after{
+            clear: both;
+            content: '';
+        }
+        table,th, td{
+            border: 1px solid black;
+            
+        }
+        thead th{
+            text-align: center;
+           
+            
+        }
+        td{
+            vertical-align: middle;
+            
+        }
+        tr{
+            height: 20px;
+        }
+        
+        .result_body{
+            width: 100%;
+             margin-top: 0;
+        }
+        .result_footer{
+            width: 100%;
+             margin-top: 0;
+        }
+        h2,h4,h5{
+            text-align: center;
+            font-size-adjust: auto;
+            
+        }
+            h2{
+                font-size: 1.3em;
+            }
+            h4{
+                font-size: 1em;
+            }
+            h5{
+                font-size: 0.7em;
+            }
+            
+        #school_logo,#passport{
+            position: absolute;
+            margin: 10px;
+        }
+        .title,.content{
+            display: inline-block;
+            margin-right: 10px;
+            margin-left: 10px;
+            
+            
+        }
+        #passport{
+            right: 1%;
+            margin: 5px;
+            top: 0.8%;
+        }
+        #school_logo,#passport{
+            position: absolute;
+            margin: 10px;
+            border-radius: 2px;
+        }
+        u{
+            text-decoration-line: underline;
+            text-decoration-style: dotted;
+            padding-bottom: 5px;
+            width: 100%;
+        }
+        b{
+            margin-bottom: 5px;
+        }
+        tr td:nth-child(1){
+            padding-left: 5px;
+            width: 23%;
+        }
+        .result_header{
+            width: 100%;
+            margin-top: 0.8%;
+            padding: 0;
+        }
+        .stud_details{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 6%;
+            margin-bottom: 0;
+            width: 98%;
+             
+        }
+        .row{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .side_bar_buttons{
+            display: flex;
+            flex-flow: row nowrap;
+            line-height: 0.55em;
+            width: 25%;
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0;
+            vertical-align: middle;
+        }
+        
+        p{
+            font-size: 0.7em;
+            margin-left: 0.5em;
+            
+        }
+            tr{
+                border-right:none;
+                border-left:none;
+    }
+}
+
+        

@@ -27,52 +27,49 @@ $(document).ready(function () {
 
                     $(`<tr>
                      <td><input class="form-control serial_number" value="${index}" disabled style="border-style: none;background-color:white;width:40px;text-align: center" type="text"></td>
-                     <td><input class="form-control admissionNO" name="${res[i].studentID}" readonly="readonly" style="border-style: none;background-color:white;" value="${res[i].admissionNO}" type="text"></td>
+                     <td><input class="form-control admissionNO stud_id" name="${res[i].studentID}" readonly="readonly" style="border-style: none;background-color:white;" value="${res[i].admissionNO}" type="text"></td>
                      <td><input class="form-control names" type="text" value="${res[i].name}" readonly="readonly" name="Names" style="border-style: none;background-color: white"></td>
                      <td><input class="form-check-input morning" type="checkbox" value="" name="morning"></td>
                      <td><input class="form-check-input afternoon" type="checkbox" value="" name="afternoon" ></td>
                      <td><input class="form-control col-3 reasons" type="text" value="" name="reasons"></td>
-                     <td><input class="form-control total" type="text" value="" readonly="readonly" name="${i}['total']" style="border-style: none;background-color: white"></td>
+                     <td><input class="form-control total atten_score" type="text" value="" readonly="readonly" name="${i}['total']" style="border-style: none;background-color: white"></td>
                      </tr>`).appendTo("tbody");
 
                 }
 
                 $("tr").each(function () {
-                    $(this).find("td:nth-child(4)").children().change(function () {
+                    $(this).children().eq(3).children('input').change(function () {
+                        let prevVal = $(this).parent().next().next().next().find('input').val();
 
-                        if ($('input').is(':checked')) {
-                            $(this).parent().find("td:nth-child(7)").find('input').val(add(1));
+                        if ($(this).is(':checked')) {
+                            //alert($(this).is(':checked'));
+                            $(this).parent().next().next().next().find('input').val(calculate(1,prevVal));
                         } else {
-
-                            $(this).parent().find("td:nth-child(7)").find('input').val(subtract(1));
+                            //alert($(this).is(':checked'));
+                            $(this).parent().next().next().next().find('input').val(calculate(-1,prevVal));
                         }
 
                     });
 
 
-                    $(this).find("td:nth-child(5)").children().change(function () {
-
-                        if ($('input').is(':checked')) {
-                            $(this).parent().find("td:nth-child(7)").find('input').val(add(1));
+                    $(this).children().eq(4).children('input').change(function () {
+                        let prevVal = $(this).parent().next().next().find('input').val();
+                        if ($(this).is(':checked')) {
+                            $(this).parent().next().next().find('input').val(calculate(1,prevVal));
                         } else {
-                            $(this).parent().find("td:nth-child(7)").find('input').val(subtract(1));
 
+                            $(this).parent().next().next().find('input').val(calculate(-1,prevVal));
                         }
 
                     });
 
                     //$(this).find("td:nth-child(7)").find('input').val("fre");
-                    function add(currentVal) {
-                        let prevVal = $.trim($(this).find("td:nth-child(7)").find('input').val());
-                        let ans = Number(prevVal + currentVal);
-                        return ans;
+
+                    function calculate(currentVal,prevVal) {
+                        let pval = isNaN(prevVal) ? 0 : prevVal;
+                        return Number(currentVal) + Number(pval);
                     }
 
-                    function subtract(currentVal) {
-                        let prevVal = $.trim($(this).find("td:nth-child(7)").find('input').val());
-                        let ans = Number(prevVal - currentVal);
-                        return ans;
-                    }
 
 
                 });

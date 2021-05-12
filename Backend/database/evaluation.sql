@@ -1,0 +1,5 @@
+CREATE TABLE affectiveAreas(
+    areaID INT(11) NOT NULL  PRIMARY KEY  AUTO_INCREMENT,
+    area TEXT(40) NOT NULL ,
+    dateAdded DATETIME NOT NULL
+);
