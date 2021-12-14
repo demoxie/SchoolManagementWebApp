@@ -11,7 +11,7 @@ if(isset($_POST)){
         $classID =$_POST['classID'];
         $sessionID = $_POST['sessionID'];
         $termID = $_POST['termID'];
-        $week = $_POST['week_round'];
+        $week = $_POST['no_of_times_school_opened'];
         $attendancePoint = $_POST['attendanceScore'][$n]['value'];
         $dayID = $_POST['dayID'];
 

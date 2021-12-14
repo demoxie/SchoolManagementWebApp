@@ -4,14 +4,16 @@
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../Stylesheets/top-nav-bar.css">
     <link rel="stylesheet" href="../Pluggins/Bootstrap/css/bootstrap.min.css">
-    <script src="../Pluggins/Jquery/jquery-3.5.1.min.jsjquery.min.js"></script>
+    <script src="../Pluggins/Jquery/jquery-3.5.1.min.js"></script>
     <script src="../Pluggins/Jquery/popper.min.js"></script>
     <script src="../Pluggins/Bootstrap/js/bootstrap.min.js"></script>
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
+
         form {
             margin: 10% auto;
 
@@ -65,30 +67,33 @@
     </style>
 </head>
 <body>
+<!--Top Nav-bar-->
+<div id="top-nav-bar">
+    <div id="nav-item-container">
+        <a class="btn nav-btn"><i class="fas fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;Home</a>
+        <a class="btn nav-btn"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
+    </div>
+    <div id="user">
+        <a class="btn nav-btn"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;&nbsp;logout</a>
+    </div>
+
+</div>
+<!--Ends here-->
 <form class="form-inline col-10">
     <button type="submit" class="btn btn-primary save col">Save</button>
-    <button type="submit" class="btn btn-primary save col">View Weekly Attendance</button><br><br>
+    <button type="submit" class="btn btn-primary save col">View Weekly Attendance</button>
+    <br><br>
     <hr>
     <div class="table-responsive-sm">
         <table class="table table-hover table-bordered">
             <thead class="thead-light">
-            <tr>
-                <div class="theading row col-12">
-                    <div class="col-3"><img src="../../Backend/Src/Icons/logo.png"></div>
 
-                    <div class="col-6">
-                        <h2>AG MODERN NUR/PRI/SEC SCHOOL</h2>
-                        <h4>First Term 2020/2021 Session</h4>
-                    </div>
-                    <div class="col-3"> <h5 class="week" style="text-align: center">Week 5</h5></div>
-                </div>
-            </tr>
             <tr>
 
 
                 <br><br>
 
-                <div class="theading row col-12">
+                <div class="above_table_row row col-12">
                     <div class="className col"><h6><strong>CLASS:</strong> Primary Four A</h6></div>
                     <div class="formaster col"><h6><strong>FORM MASTER:</strong> Mr. Samson Madaki</h6></div>
                     <div class="date col"><h6><strong>DATE:</strong> 16th April, 2021</h6></div>

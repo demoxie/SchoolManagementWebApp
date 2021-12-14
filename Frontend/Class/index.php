@@ -173,7 +173,8 @@
             </div>
             <div class="col" id="class_rep_container">
                  <input type="hidden" id="student-id" name="student-id">
-                <input type="text" class="form-control col-12" id="class_rep" placeholder="class rep name" name="class_rep">
+                <input type="text" class="form-control col-12" id="class_rep" placeholder="class rep name"
+                       name="class_rep">
                 <div class="class_rep_search_result col-12"></div>
             </div>
 
@@ -183,8 +184,9 @@
         </div>
         <hr>
 
-        <div class="theading row col-12">
-            <div class="className col-3"><input type="text" class="form-control" id="search" name="search" placeholder="Search by department or hod">
+        <div class="above_table_row row col-12">
+            <div class="className col-3"><input type="text" class="form-control" id="search" name="search"
+                                                placeholder="Search by department or hod">
             </div>
         </div>
         <div class="col">

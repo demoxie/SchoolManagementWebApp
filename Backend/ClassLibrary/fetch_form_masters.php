@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = $connect->getConnection();
     $schoolClassObject = new SchoolClass($conn);
 
-    if (isset($_POST['CLASS'])) echo json_encode($schoolClassObject->getFormMaster($_POST['CLASS']), JSON_PRETTY_PRINT);
+    if (isset($_POST['classID'])) echo $schoolClassObject->getFormMaster($_POST['classID']);
 
 
 } else {

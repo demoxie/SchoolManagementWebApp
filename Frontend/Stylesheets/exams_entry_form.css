@@ -64,7 +64,7 @@ input {
 }
 
 
-.choice select {
+.first_row select {
     margin: auto 10px;
 }
 
@@ -81,7 +81,7 @@ input {
     float: right;
 }
 
-.theading {
+.above_table_row {
     display: flex;
     justify-content: space-between;
     align-content: center;

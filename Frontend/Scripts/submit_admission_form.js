@@ -12,9 +12,13 @@ $(document).ready(function () {
             contentType: false,
             cache: false,
             processData: false,
-            success: function (message) {
-                console.log(message);
-                for (let v in message) {
+            success: function (data) {
+                console.log(data);
+                let res = JSON.parse(data);
+                $('#for-reg').html(`<b>REG NO:</b> ${res.message}`);
+                $('#myModal').modal('show');
+
+                /*for (let v in message) {
 
                     if (true === message.hasOwnProperty(-2)) {
                         //$(".signup-form").hide();
@@ -33,7 +37,7 @@ $(document).ready(function () {
                         $(`#errorModal`).modal("show");
                         $(".modal-body p").html(message["1"].message);
                     }
-                }
+                }*/
             },
             error: function (res) {
                 alert(res);

@@ -122,7 +122,7 @@
 <form class="form-inline col-10" method="post" id="daily_attendance_form" enctype="multipart/form-data">
 
 
-    <div class="theading row col-12">
+    <div class="above_table_row row col-12">
         <div class="col-3"><img src="../../Backend/Src/Icons/logo.png" alt="school logo"></div>
 
         <div class="col-6">
@@ -132,13 +132,14 @@
         <div class="col-3"><h5 class="week" style="text-align: center">Week 5</h5></div>
     </div>
     <hr>
-    <div class="row choice g-3">
+    <div class="row first_row g-3">
         <select name="class" class="form-select class col" id="class" aria-label="Default select example">
             <option selected disabled>CLASS</option>
 
         </select>
 
-        <select name="session" class="form-select session col" id="session" aria-label="Default select example" style="margin-inline: 15px">
+        <select name="session" class="form-select session col" id="session" aria-label="Default select example"
+                style="margin-inline: 15px">
             <option selected disabled>SESSION</option>
 
         </select>
@@ -148,7 +149,8 @@
             <option value="2">Second Term</option>
             <option value="3">Third Term</option>
         </select>
-        <input type="text" class="form-control week_round col" placeholder="for what week?" id="week_round" name="week_round">
+        <input type="text" class="form-control week_round col" placeholder="for what week?"
+               id="no_of_times_school_opened" name="week_round">
 
         <select name="day" class="form-select day col" id="day" aria-label="Default select example">
             <option selected disabled>DAY</option>
@@ -169,13 +171,13 @@
 
     <br><br>
 
-    <div class="theading row col-12">
+    <div class="above_table_row row col-12">
         <div class="className col"><h6><strong>CLASS:</strong> Primary Four A</h6></div>
         <div class="formaster col"><h6><strong>FORM MASTER:</strong> Mr. Samson Madaki</h6></div>
         <div class="date col"><h6><strong>DATE:</strong> 16th April, 2021</h6></div>
     </div>
     <hr>
-    <div class="theading row col-12">
+    <div class="above_table_row row col-12">
         <div class="className col"><input type="text" class="form-control" id="search" name="search"
                                           placeholder="Search by admissionNO, Names, or session">
         </div>

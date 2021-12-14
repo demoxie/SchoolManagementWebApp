@@ -9,7 +9,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $accessObject = new Access($connect);
     $username = htmlspecialchars(strip_tags($_POST['username']));
     $password = htmlspecialchars(strip_tags($_POST['password']));
-    $accessObject->login($username, $password);
+    $msg = $accessObject->login($username, $password);
+    if ($msg === 'welcome back') {
+        echo $msg;
+
+    } else {
+        echo json_encode($msg, JSON_PRETTY_PRINT);
+    }
+
 
 } else {
     echo "error ok";

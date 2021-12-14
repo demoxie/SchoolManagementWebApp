@@ -30,8 +30,7 @@
             font-weight: bold;
         }
 
-        table,
-        th,
+
         tr,
         td {
             text-align: center;
@@ -56,12 +55,12 @@
              padding: 1px;
          }*/
 
-        .form-control:hover,
-        .form-control:active,
-        .form-control:focus,
-        .form-select:hover,
-        .form-select:active,
-        .form-select:focus,
+        input.form-control:hover,
+        input.form-control:active,
+        input.form-control:focus,
+        select.form-select:hover,
+        select.form-select:active,
+        select.form-select:focus,
         .btn:hover,
         .btn:active,
         .btn:focus {
@@ -71,14 +70,29 @@
 
         }
 
-        .btn {
-            background: darkgreen;
+        button.btn {
+            background: orangered;
+            border: 2px solid gray;
+            border-radius: 1.5rem;
             color: white;
+            font-weight: bolder;
         }
 
-        .btn:hover {
-            color: white;
-            background: limegreen;
+        input.form-control, .form-select {
+            border: 2px solid orangered;
+            border-radius: 1.5rem;
+            color: black;
+            font-weight: bolder;
+        }
+
+        input.form-control:focus, .form-select:focus {
+            border-color: orangered;
+        }
+
+        button.btn:hover {
+            color: orangered;
+            background: #ccc;
+            border-color: orangered;
         }
 
         .delete {
@@ -192,24 +206,22 @@
     </div>
     <hr>
 
-    <div class="theading row col-12">
-        <div class="className col-3">
+    <div class="above_table_row row col-12">
+        <div class="className col-5">
             <input type="text" class="form-control" id="search" name="search"
-                   placeholder="Search by department or hod">
+                   placeholder="Search by Name">
         </div>
     </div>
-    <div class="col">
-        <ul class="pagination pagination-md justify-content-end">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </div>
+    <ul class="pagination justify-content-end">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
 
-    <div class="table-responsive-sm">
-        <table class="table table-hover table-bordered">
+    <div class="table-responsive-sm" style="overflow:auto">
+        <table class="table table-hover table-bordered" style="overflow:auto">
             <thead class="thead-light">
             <tr>
                 <th style="width: 5%">#</th>
@@ -223,7 +235,7 @@
             </tbody>
             <tfoot></tfoot>
         </table>
-        <ul class="pagination pagination-md justify-content-end">
+        <ul class="pagination justify-content-end">
             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>

@@ -3,7 +3,7 @@ $(document).ready(function () {
         let stud_class = $('.class').val(),
             sessionID = $('.session').val(),
             termID = $('.term').val(),
-            week_round = $('#week_round').val(),
+            week_round = $('#no_of_times_school_opened').val(),
             day = $('#day').val(),
             studentID = $('.stud_id').serializeArray(),
             reasons = $('.reasons').serializeArray(),

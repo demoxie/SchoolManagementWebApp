@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../../Backend/Src/Icons/logo.jpg">
     <link rel="stylesheet" href="../Pluggins/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Stylesheets/top-nav-bar.css">
+    <link rel="stylesheet" href="../Pluggins/awesome/css/all.min.css">
     <script src="../Pluggins/Jquery/jquery-3.5.1.min.js"></script>
     <script src="../Scripts/add_subject.js"></script>
     <script src="../Scripts/fetch_class_again.js"></script>
     <script src="../Scripts/fetch_departments.js"></script>
     <script src="../Pluggins/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Pluggins/awesome/js/all.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -53,6 +56,17 @@
             margin-top: 0;
         }
 
+        .delete {
+            background-color: firebrick;
+            color: white;
+        }
+
+        .edit {
+            background-color: darkorange;
+            color: white;
+
+        }
+
         #result {
             border-radius: 3px;
         }
@@ -86,74 +100,91 @@
         .form-control:focus,
         .btn:hover,
         .btn:active,
-        .btn:focus{
+        .btn:focus {
             outline: none !important;
             appearance: none !important;
             box-shadow: none !important;
-            
+
         }
-        .btn{
-            background: darkgreen;
+
+        button.btn {
+            background: orangered;
             color: white;
+            border: 2px solid black;
         }
-        .btn:hover{
-            color:white;
-            background: limegreen;
+
+        button.btn:hover {
+            color: orangered;
+            background: #ccc;
+            border-color: orangered;
         }
+
+        .row-b {
+            display: grid;
+            grid-template-columns: 22vw 22vw 22vw 22vw;
+
+            justify-content: center;
+            jus
+            justify-items: center;
+            align-content: center;
+        }
+
     </style>
 </head>
 <body>
-<form class="form-inline col-10" method="POST" id="subject_entry_form" role="form" enctype="multipart/form-data">
-
-
-    <div class="theading col-12">
-        <div class="col-8 title-box">
-            <h1>AG MODERN NUR/PRI/SEC SCHOOL</h1>
-        </div>
-
+<!--Top Nav-bar-->
+<div id="top-nav-bar">
+    <div id="nav-item-container">
+        <a class="btn nav-btn"><i class="fas fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;Home</a>
+        <a class="btn nav-btn"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
+    </div>
+    <div id="user">
+        <a class="btn nav-btn"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;&nbsp;logout</a>
     </div>
 
+</div>
+<!--Ends here-->
+<form class="form-inline col-10" method="POST" id="subject_entry_form" role="form" enctype="multipart/form-data">
+
     <br><br>
-    <div class="row">
-        <div class="col">
+    <div class="row-b">
+        <div class="col-b">
             <input type="text" class="form-control" id="subject_code" placeholder="Subject code"
                    name="subject_code">
         </div>
-        <div class="col">
+        <div class="col-b">
             <input type="text" class="form-control" id="subject_name" placeholder="Subject name"
                    name="subject_name">
         </div>
-        <div class="col">
+        <div class="col-b">
             <input type="number" class="form-control" id="subject_unit" placeholder="Subject Unit"
                    name="subject_unit" min="0" max="10">
         </div>
-        <div class="col">
+        <div class="col-b">
             <button type="button" class="btn" name="add_subject" id="add_subject">Add Subject
             </button>
         </div>
     </div>
     <hr>
-    <div class="theading row col-12">
-        <div class="className col-3">
-            <input type="text" class="form-control" id="search" name="search_keyword"
-                   placeholder="Search by Names">
-        </div>
 
-        <div class="date col">
-            <ul class="pagination pagination-md justify-content-end">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </div>
+    <div class="className col-3">
+        <input type="text" class="form-control" id="search" name="search_keyword"
+               placeholder="Search by Names">
     </div>
+
+    <ul class="pagination pagination-md justify-content-end">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+
     <div class="table-responsive-sm">
         <table class="table table-hover table-bordered">
-            <thead class="thead-light">
+            <thead style="background-color:orangered;color:white">
             <tr>
-                <th>S/N</th>
+                <th>#</th>
                 <th>Subject Code</th>
                 <th>Subject</th>
                 <th>Unit</th>
@@ -187,42 +218,15 @@
                     11/01/2020 12:06:01
                 </td>
                 <td>
-                    <a  class="btn save col">Edit</a>
+                    <a class="btn edit"><i class="fas fa-edit"></i></a>
 
 
                 </td>
                 <td>
-                    <a class="btn save col">Delete</a>
+                    <a class="btn delete"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>MTH111</td>
-                <td>Mathematics</td>
-                <td>
-                    1
-                </td>
-                <td>
-                    Primary 1
-                </td>
-                <td>
-                    Science
-                </td>
-                <td>
-                    Emmanuel Joshua
-                </td>
-                <td>
-                    11/01/2020 12:06:01
-                </td>
-                <td>
-                    <a  class="btn save col">Edit</a>
 
-
-                </td>
-                <td>
-                    <a  class="btn save col">Delete</a>
-                </td>
-            </tr>
 
             </tbody>
             <tfoot class="">

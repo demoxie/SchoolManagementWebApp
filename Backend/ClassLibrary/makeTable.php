@@ -93,7 +93,7 @@
             font-size-adjust: auto;
         }
 
-        .choice select {
+        .first_row select {
             margin: auto 10px;
         }
 
@@ -109,7 +109,7 @@
             <tr>
 
 
-                <div class="theading row col-12">
+                <div class="above_table_row row col-12">
                     <div class="className col"><h6><strong>CLASS:</strong> Primary Four A</h6></div>
                     <div class="formaster col"><h6><strong>FORM MASTER:</strong> Mr. Samson Madaki</h6></div>
                     <div class="date col"><h6><strong>DATE: </strong></h6></div>
@@ -120,7 +120,7 @@
                 <button type="submit" class="btn btn-primary upper-save col-2">Save</button>
             </div>
             <hr>
-            <div class="theading row col-12">
+            <div class="above_table_row row col-12">
                 <div class="className col-3"><input type="text" class="form-control" id="search" name="search"
                                                     placeholder="Search Names">
                 </div>

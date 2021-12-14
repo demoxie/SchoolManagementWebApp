@@ -1,6 +1,4 @@
-<?php
-require_once "C:\wamp64\www\smwa\Backend\server\connection.php";
-?>
+<!--
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,58 +20,13 @@ require_once "C:\wamp64\www\smwa\Backend\server\connection.php";
         <form class="exam form col-12" role="form">
 
             <h2 class="paper-type col-lg-6 col-md-8 col-sm-10">
-                <?php
-                
-                  // Select Subject from the table
-                      $stmt = $conn->prepare("SELECT SubjectName FROM subjects");
-                     $stmt->execute();
 
-                    // set the resulting array to associative
-                     $result= $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    
-                  
-                 //$stmt = $conn->exec();
-                 foreach($stmt->fetchAll() as $k => $result) {
-        
-                  $SubjectName=$result["SubjectName"];
-                 
-                   echo  $SubjectName;
-                }
-                
-                
-                
-                ?>
             </h2>
             <p class="instruction"><u>Instruction:</u><i> Answer all question in this section. All questions carries equal marks.</i></p>
 
             <div class="page col-12">
                 <ol class="question-container col-12">
-                    <?php
-                    // Select Subject from the table
-                      $stmt = $conn->prepare("SELECT questions.QuestionText,questions.QuestionImage,option.OptionA,option.OptionB,option.OptionC,option.OptionD,option.OptionE FROM questions INNER JOIN option ON questions.OptionID = option.OptionID");
-                     $stmt->execute();
-                
 
-                    // set the resulting array to associative
-                     $questions= $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                
-                  
-                 //$stmt = $conn->exec();
-                 foreach($stmt->fetchAll() as $k => $questions) {
-                     $QuestionText=$questions["QuestionText"];
-                     $QuestionImage=$questions["QuestionImage"];
-                     $optionA=$questions["OptionA"];
-                     $optionB=$questions["OptionB"];
-                     $optionC=$questions["OptionC"];
-                     $optionD=$questions["OptionD"];
-                     $optionE=$questions["OptionE"];
-                 
-                   
-                     echo '<div>';
-                     echo '<li class="question">'.$QuestionText.'<br> <br>';
-                         if($QuestionImage !=''){
-                             echo '<figure class="image">'.'<img style="width:68%;height: 200px;" src="upload/'.basename($QuestionImage).'" >'.'<figcaption>Fig 1: This is the diagram of myself</figcaption></figure>';
-                         }
 
                     echo '<div class="radio">
                         <label class="answer-text control-label radio-inline col-12" for="opt-A">A&nbsp;<input class="option-btn" type="radio" name="optradio" id="opt-A">'.' '.$optionA.'</label>
@@ -123,4 +76,4 @@ require_once "C:\wamp64\www\smwa\Backend\server\connection.php";
 
 </body>
 
-</html>
+</html>-->

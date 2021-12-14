@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     $.get('../../Backend/ClassLibrary/fetch_class.php', function (data) {
         let response = JSON.parse(data);
@@ -8,7 +9,9 @@ $(document).ready(function () {
     });
     $(".myclass").on('change', function () {
         let myclass = $(this).val();
-        $.post("../../Backend/ClassLibrary/fetch_form_masters.php", {CLASS: myclass}, function (result) {
+        $.post("../../Backend/ClassLibrary/fetch_form_masters.php", {
+            classID: myclass
+        }, function (result) {
             $("#form").html(result);
             $("#display_class").html($('#myclass').find(':selected').text());
         });
@@ -44,9 +47,9 @@ $(document).ready(function () {
 
                 function makeRows(i, index) {
 
-                    $(`<tr>
-                     <td><input class="form-control serial_number" value="${index}" disabled style="border-style: none;background-color:white;" type="text"></td>
-                     <td><input class="form-control names" name="${ret[i].studentID}" readonly="readonly" style="border-style: none;background-color:white;" value="${ret[i].name}" type="text"></td>
+                    $(`<tr >
+                     <td style="text-align:center;vertical-align:middle;width: 10px;padding: 2px"><input class="form-control serial_number" value="${index}" disabled style="border-style: none;background-color:white;" type="text"></td>
+                     <td style="min-width: 50px;padding: 3px" ><input class="form-control names" name="${ret[i].studentID}" readonly="readonly" style="border-style: none;background-color:oldlace;" value="${ret[i].name}" type="text"></td>
                      <td><input class="form-control first_ca" type="number" min="0" value="" name="1st_ca"></td>
                      <td><input class="form-control second_ca" type="number" min="0" value="" name="2nd_ca"></td>
                      <td><input class="form-control third_ca" type="number" min="0" value="" name="3rd_ca"></td>
@@ -60,22 +63,26 @@ $(document).ready(function () {
                      </tr>`).appendTo("tbody");
 
                 }
+
+                $('tr td input.form-control').css({'width': '6rem', "text-align": "center"});
+
+                $('tbody tr td').css({"width": "0.1rem", "text-align": "center"});
                 $('.save, .upper-save,.calculate,.upper-calculate').removeClass('disabled');
                 $('.save, .upper-save').empty().text('Save');
 
-                let firstCA ;
-                let secondCA ;
-                let thirdCA ;
+                let firstCA;
+                let secondCA;
+                let thirdCA;
                 let exams;
                 const total_Array = [];
                 $("button.calculate,button.upper-calculate").click(function (x) {
                     //alert("he");
                     x.preventDefault();
                     $("tbody tr").each(function () {
-                        firstCA=Number($.trim($(this).children("td").eq(2).children("input").val()));
-                        secondCA=Number($.trim($(this).children("td").eq(3).children("input").val()));
-                        thirdCA=Number($.trim($(this).children("td").eq(4).children("input").val()));
-                        exams=Number($.trim($(this).children("td").eq(5).children("input").val()));
+                        firstCA = Number($.trim($(this).children("td").eq(2).children("input").val()));
+                        secondCA = Number($.trim($(this).children("td").eq(3).children("input").val()));
+                        thirdCA = Number($.trim($(this).children("td").eq(4).children("input").val()));
+                        exams = Number($.trim($(this).children("td").eq(5).children("input").val()));
                         let result = Sum(firstCA, secondCA, thirdCA, exams);
                         $(this).children("td").eq(6).children("input").val(result);
 
@@ -114,14 +121,18 @@ $(document).ready(function () {
                         let v = n % 100;
                         return n + (s[(v - 20) % 10] || s[v] || s[0]);
                     }
+
                     //To Compute sum of 1st, 2nd and third CA and append to column Total
-                    function Sum(firstCA , secondCA , thirdCA , exams ) {
-                            return (firstCA + secondCA + thirdCA + exams).toFixed(2);
+                    function Sum(firstCA, secondCA, thirdCA, exams) {
+                        return (firstCA + secondCA + thirdCA + exams).toFixed(2);
                     }
-                    function grade(score){
-                        if(score>100.00){
-                            return [{"No grade":"is above 100"}];
-                        }else if (score>= 75.00 && score <= 100.00) {
+
+                    function grade(score) {
+                        if (score > 100.00) {
+                            return [{
+                                "No grade": "is above 100"
+                            }];
+                        } else if (score >= 75.00 && score <= 100.00) {
                             return "A";
                         } else if (score >= 70.00 && score < 75.00) {
                             return "B2";
@@ -135,13 +146,14 @@ $(document).ready(function () {
                             return "C6";
                         } else if (score >= 45.00 && score < 50.00) {
                             return "D7";
-                        } else if (score >= 40.00 && score <45.00) {
+                        } else if (score >= 40.00 && score < 45.00) {
                             return "E8";
                         } else {
                             return "F9";
                         }
                     }
-                    function remark(grade){
+
+                    function remark(grade) {
                         if (grade === 'A') {
                             return 'Excellent';
                         } else if (grade === 'B2') {

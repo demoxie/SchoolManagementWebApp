@@ -4,20 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>STUDENT PROFILE LIST</title>
+    <title>Student Profile List</title>
     <link rel="icon" href="../../../Backend/Src/Icons/logo.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="../../Pluggins/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../Stylesheets/top-nav-bar.css">
     <link rel="stylesheet" href="../../Pluggins/awesome/css/all.min.css">
     <link rel="stylesheet" href="../../Pluggins/Bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../Stylesheets/confirm_delete_modal.css">
     <link rel="stylesheet" href="../../Stylesheets/profile_card.css">
     <link rel="stylesheet" href="../../Stylesheets/print.css">
     <script src="../../Pluggins/Jquery/jquery-3.5.1.min.js"></script>
+    <script src="../../Scripts/access-top-level.js"></script>
     <script src="../../Scripts/fetch_class.js"></script>
-    <script src="../../Pluggins/Bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../Pluggins/Jquery/popper.min.js"></script>
+    <script src="../../Scripts/login-top-level.js"></script>
     <script src="../../Scripts/student_profile_list_crud.js"></script>
+    <script src="../../Pluggins/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../Pluggins/awesome/js/all.min.js"></script>
+
 
     <style>
         * {
@@ -128,14 +130,17 @@
 
         table.table td a.view {
             color: #03A9F4;
+            font-size: 16px;
         }
 
         table.table td a.edit {
             color: #FFC107;
+            font-size: 16px;
         }
 
         table.table td a.delete {
             color: #E34724;
+            font-size: 16px;
         }
 
         table.table td i {
@@ -188,16 +193,16 @@
         }
 
         input:hover,
-        select:focus,
+        .custom-select-lg:focus,
         input:active,
-        select:hover,
         input:focus,
         .close_down:focus,
         .close:focus,
         .close_down:hover,
         .btn:hover {
-            outline: 0 !important;
-            -webkit-appearance: none;
+            outline: none !important;
+            appearance: none !important;
+            -webkit-appearance: none !important;
             box-shadow: none !important;
         }
 
@@ -240,28 +245,28 @@
             margin: 30px auto;
         }
 
-        .myclass {
-            border: 1px solid;
+        .custom-select-lg {
+            border: 2px solid orangered;
             border-radius: 0;
-            background: darkgreen;
+            background: #0d152a;
             color: white;
-            padding-block: 10px;
+            font-size: 13px;
+            padding: 10px 25px;
         }
 
         option:first-child {
             font-weight: bold !important;
             text-transform: uppercase;
-            text-indent: 49%;
         }
 
-        .school_name {
-            text-align: center;
-            font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-            font-weight: bold;
-            color: darkorange;
-            text-shadow: -2px 0 darkgreen, 0 2px darkgreen, 2px 0 darkgreen, 0 -2px darkgreen;
-        }
-
+        /* .school_name {
+             text-align: center;
+             font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+             font-weight: bold;
+             color: darkorange;
+             text-shadow: -2px 0 darkgreen, 0 2px darkgreen, 2px 0 darkgreen, 0 -2px darkgreen;
+         }
+ */
         .header_block {
             padding-block: 0;
             background: #c0c6c4;
@@ -279,21 +284,33 @@
 
 </head>
 <body>
-<h1 class="school_name">AG MODERN NUR/PRI/SEC SCHOOL ASHAKACEM</h1>
+<!--Top Nav-bar-->
+<div id="top-nav-bar">
+    <div id="nav-item-container">
+        <a class="btn nav-btn" href="../../../index.php"><i class="fas fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;Home</a>
+        <a class="btn nav-btn" href="../../Dashboard/index.php"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
+    </div>
+    <div id="user">
+        <a class="btn nav-btn"><i class="fas fa-user-circle" id="logout"></i>&nbsp;&nbsp;&nbsp;logout</a>
+    </div>
+
+</div>
+<!--Ends here-->
+
 <div class="container" style="padding-top: 10px;border-radius: 10px;border: 2px dashed darkred;margin-top: 40px;">
     <div class="choice_container">
 
-        <select class="selectpicker form-control myclass" name="class" id="class">
+        <select class="custom-select-lg myclass" name="class" id="class">
             <option selected disabled>-- SELECT CLASS --</option>
         </select>
 
     </div>
 
-        <div class="table-wrapper">
+    <div class="table-wrapper">
 
-            <div class="table-title">
-                <div class="top_container">
-                    <div class="col-xs-4 myinput_container">
+        <div class="table-title">
+            <div class="top_container">
+                <div class="col-xs-4 myinput_container">
                         <div class="show-entries">
                             <span>Show</span>
                             <select>
@@ -316,10 +333,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
-            <div class="table-responsive">
-            <table class="table table-bordered" id="stud_list_table">
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="stud_list_table" style="overflow:auto">
                 <thead>
                 <tr>
                     <th>#</th>
@@ -367,7 +384,7 @@
                     <div id="passport_container"
                          style="margin: 0 auto;display: flex;justify-content: center;align-items: center"></div>
 
-                    <div class="information" style="margin-top: 10px">
+                    <div class="information col-12" style="margin-top: 10px;padding: 0">
                         <div class="row col-11 header_block"><h5 class="header_text">Personal Details</h5></div>
                         <div class="row col-11">
                             <div class="block col-sm-12 col-md-4 col-lg-4">

@@ -27,30 +27,30 @@ $(document).ready(function () {
 
                     $(`<tr>
                 <td>${index}</td>
-                <td>${res[i].admissionNO}</td>
-                <td><input readonly="readonly" style="padding-left: 0;padding-right: 0;background: white" type="text" class="form-control name stud_id" id="name" name="${res[i].studentID}" value="${res[i].name}"></td>
+                <td style="text-align: center;vertical-align: middle;min-width: 150px">${res[i].admissionNO}</td>
+                <td style="text-align: center;vertical-align: middle;min-width: 200px"><input readonly="readonly" style="border:none;text-align: center;background: white;width:100%;padding: 5px 10px" type="text" class="form-control name stud_id" id="name" name="${res[i].studentID}" value="${res[i].name}"></td>
                 
-                <td>
+                <td style="text-align: center;vertical-align: middle">
                     <div class="form-check-inline">
                         <input type="checkbox" class="form-check-input mon_check">
                         <input type="hidden" class="form-control mon" name="mon" value="">
 
                     </div>
                 </td>
-                <td>
+                <td style="text-align: center;vertical-align: middle">
                     <div class="form-check-inline">
                         <input type="checkbox" class="form-check-input tues_check">
                         <input type="hidden" class="form-control tues" name="tues" value="">
                     </div>
                 </td>
                 
-                <td>
+                <td style="text-align: center;vertical-align: middle">
                     <div class="form-check-inline">
                         <input type="checkbox" class="form-check-input wed_check">
                         <input type="hidden" class="form-control wed" name="wed" value="">
                     </div>
                 </td>
-                <td>
+                <td style="text-align: center;vertical-align: middle">
                     <div class="form-check-inline">
 
                         <input type="checkbox" class="form-check-input thurs_check">
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
                     </div>
                 </td>
-                <td>
+                <td style="text-align: center;vertical-align: middle">
                     <div class="form-check-inline">
 
                         <input type="checkbox" class="form-check-input fri_check" >
@@ -68,7 +68,7 @@ $(document).ready(function () {
 
                 
                 
-                <td><input type="text" readonly="readonly" style="background: white" class="form-control col-2 total" name="${i}['total']" value=""></td>
+                <td style="text-align: center;vertical-align: middle;padding: 2px"><input type="text" readonly="readonly" style="border:none;text-align: center;width:100%;padding: 5px 10px;background: white;" class="form-control total" name="${i}['total']" value=""></td>
             </tr>`).appendTo("tbody");
 
                 }

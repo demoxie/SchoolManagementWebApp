@@ -1,6 +1,6 @@
 <?php
-include_once("../../Backend/ClassLibrary/Session.php");
 include_once("../../Backend/server/Database.php");
+include_once("../../Backend/ClassLibrary/Session.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $connect = new Db();

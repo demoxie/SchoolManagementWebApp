@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Session Entry Form</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../Pluggins/Bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="../../Backend/Src/Icons/rfc-logo.jpg">
     <script src="../Pluggins/Jquery/jquery-3.5.1.min.js"></script>
     <script src="../Scripts/session.js"></script>
     <script src="../Pluggins/Jquery/popper.min.js"></script>

@@ -1,40 +1,27 @@
 $(function () {
     const tbody = $('tbody');
     let select_all = $('input#select_all'),
-        classArray = ['nur 1', 'nur 2', 'nur 3', 'pri 1', 'pri 2', 'pri 3', 'pri 4', 'pri 5', 'pri 6', 'jss 1', 'jss 2', 'jss 3', 'ss 1', 'ss 2', 'ss 3'],
-        currentClass, curClass, nextClass, currentStatus, nextStatus, classArm, selectedOptions, tableRows, studClass,
-        current_class, sessionID, classID, selector, studentID, studentCurrentClass, studentPreviousClass, affectedRow, studentCurrentStatus, status, termID;
-    $.get('../../../Backend/ClassLibrary/fetch_students_from_status.php', function (data) {
-        //console.log(data);
-        let result = JSON.parse(data);
-        printRows(result);
-
-        //tableRows = $('tbody tr');
-        toggleAllSelectors();
-        toggleEachSelector();
-        promoteAnIndividual();
-        demoteAnIndividual();
-        withdrawAnIndividual();
-        expellAnIndividual();
-        deleteAnIndividual();
-        searchForAnIndividual();
-        //promoteSelectedIndividuals();
-        demoteSelectedIndividuals();
-        withdrawSelectedIndividuals();
-        expellSelectedIndividuals();
-        deleteSelectedIndividuals();
-
-    });
-    let currentTableState = $('tbody').html();
-    $('#class').change(function (e) {
+        classArray = ['pre-nursery', 'nur 1', 'nur 2', 'pri 1', 'pri 2', 'pri 3', 'pri 4', 'pri 5', 'pri 6', 'jss 1', 'jss 2', 'jss 3', 'ss 1', 'ss 2', 'ss 3'],
+        currentClass, curClass, nextClass, currentStatus, nextStatus, classArm, selectedOptions, tableRows,
+        mainSelector,
+        current_sessionID, next_sessionID, classID, selector, studentID, studentCurrentClass, studentPreviousClass,
+        affectedRow, studentCurrentStatus,
+        termID;
+    $('#class').change(function () {
         classID = $(this).val();
-        searchByClassSessionTerm(classID, sessionID);
+        //alert(current_sessionID);
+        searchByClassSessionTerm(classID, current_sessionID);
     });
-    $('#session').change(function (e) {
-        sessionID = $(this).val();
-        searchByClassSessionTerm(classID, sessionID);
+    $('#current_session').change(function () {
+        current_sessionID = $(this).val();
+        searchByClassSessionTerm(classID, current_sessionID);
     });
-    $('#term').change(function (e) {
+    $('#next_session').change(function () {
+        next_sessionID = $(this).val();
+        //alert(next_sessionID);
+        //searchByClassSessionTerm(classID, next_sessionID);
+    });
+    $('#term').change(function () {
         termID = $(this).val();
 
     });
@@ -49,14 +36,16 @@ $(function () {
         });
     }
 
-    function searchByClassSessionTerm(classID, sessionID) {
+    function searchByClassSessionTerm(classID, current_sessionID) {
+
         $.post('../../../Backend/ClassLibrary/fetch_status_by_class_and_session.php', {
             classID: classID,
-            sessionID: sessionID
+            current_sessionID: current_sessionID
         }, function (data) {
             //console.log(data);
             let result = JSON.parse(data);
             printRows(result);
+            toggleEachSelector();
             promoteAnIndividual();
             demoteAnIndividual();
             withdrawAnIndividual();
@@ -74,27 +63,31 @@ $(function () {
 
     function promoteAnIndividual() {
         $('.promote').click(function () {
-            currentClass = $(this).parent().prev().prev().prev().html();
-            curClass = currentClass.toLocaleLowerCase().slice(0, -1);
-            classArm = currentClass.slice(currentClass.length - 1);
-            currentStatus = $(this).parent().prev().html();
-            nextStatus = $(this).parent().prev().html('Promoted');
-            for (let i in classArray) {
-                if (curClass === classArray[i]) {
-                    i++;
-                    if (i <= classArray.length - 1) {
-                        nextClass = classArray[i].toUpperCase();
-                        $(this).parent().prev().prev().prev().html(nextClass + classArm);
-                        $(this).parent().prev().prev().html(currentClass);
-                        affectedRow = $(this).closest('tr').children('td');
-                        studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
-                        submitChangedStatus(studentID, studentCurrentClass = nextClass + classArm, currentClass, studentCurrentStatus = 'Promoted', sessionID, termID, classID);
-                        //alert(id);
+            if (validateForSubmission() === 'true') {
+                currentClass = $(this).parent().prev().prev().prev().html();
+                curClass = currentClass.toLocaleLowerCase().slice(0, -1);
+                classArm = currentClass.slice(currentClass.length - 1);
+                currentStatus = $(this).parent().prev().html();
+                nextStatus = $(this).parent().prev().html('Promoted');
+                for (let i in classArray) {
+                    if (curClass === classArray[i]) {
+                        i++;
+                        if (i <= classArray.length - 1) {
+                            nextClass = classArray[i].toUpperCase();
+                            $(this).parent().prev().prev().prev().html(nextClass + classArm);
+                            $(this).parent().prev().prev().html(currentClass);
+                            affectedRow = $(this).closest('tr').children('td');
+                            studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
+                            submitChangedStatus(studentID, studentCurrentClass = nextClass + classArm, currentClass, studentCurrentStatus = 'Promoted', next_sessionID, termID);
+                            //alert(id);
+                        }
+
+                    } else {
+
                     }
-
-                } else {
-
                 }
+            } else {
+                //alert(item[i]);
             }
 
         });
@@ -103,25 +96,29 @@ $(function () {
 
     function demoteAnIndividual() {
         $('.demote').click(function () {
-            currentClass = $(this).parent().prev().prev().prev().prev().html();
-            curClass = currentClass.toLocaleLowerCase().slice(0, -1);
-            classArm = currentClass.slice(currentClass.length - 1);
-            //alert(classArm);
-            currentStatus = $(this).parent().prev().html();
-            nextStatus = $(this).parent().prev().prev().html('Demoted');
-            for (let i in classArray) {
-                if (curClass === classArray[i]) {
-                    nextClass = classArray[i].toUpperCase();
-                    //write current class
-                    $(this).parent().prev().prev().prev().prev().html(nextClass + classArm);
-                    $(this).parent().prev().prev().prev().html(currentClass);
-                    affectedRow = $(this).closest('tr').children('td');
-                    studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
-                    submitChangedStatus(studentID, studentCurrentClass = nextClass + classArm, currentClass, studentCurrentStatus = 'Demoted', sessionID, termID, classID);
+            if (validateForSubmission() === 'true') {
+                currentClass = $(this).parent().prev().prev().prev().prev().html();
+                curClass = currentClass.toLocaleLowerCase().slice(0, -1);
+                classArm = currentClass.slice(currentClass.length - 1);
+                //alert(classArm);
+                currentStatus = $(this).parent().prev().html();
+                nextStatus = $(this).parent().prev().prev().html('Repeated');
+                for (let i in classArray) {
+                    if (curClass === classArray[i]) {
+                        nextClass = classArray[i].toUpperCase();
+                        //write current class
+                        $(this).parent().prev().prev().prev().prev().html(nextClass + classArm);
+                        $(this).parent().prev().prev().prev().html(currentClass);
+                        affectedRow = $(this).closest('tr').children('td');
+                        studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
+                        submitChangedStatus(studentID, studentCurrentClass = nextClass + classArm, currentClass, studentCurrentStatus = 'Repeated', next_sessionID, termID);
 
-                } else {
-                    //alert(item[i]);
+                    } else {
+                        //alert(item[i]);
+                    }
                 }
+            } else {
+                alert('select next session and term');
             }
         });
 
@@ -129,39 +126,54 @@ $(function () {
 
     function withdrawAnIndividual() {
         $('.withdraw').click(function () {
-            currentStatus = $(this).parent().prev().prev().html();
-            nextStatus = $(this).parent().prev().prev().prev().html('Withdrawn');
-            studentCurrentClass = $(this).parent().prev().prev().prev().prev().prev().html();
-            studentPreviousClass = $(this).parent().prev().prev().prev().prev().html();
-            affectedRow = $(this).closest('tr').children('td');
-            studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
-            submitChangedStatus(studentID, studentCurrentClass, studentPreviousClass, studentCurrentStatus = 'Withdrawn', sessionID, termID, classID);
+            if (validateForSubmission() === 'true') {
+                currentStatus = $(this).parent().prev().prev().html();
+                nextStatus = $(this).parent().prev().prev().prev().html('Withdrawn');
+                studentCurrentClass = $(this).parent().prev().prev().prev().prev().prev().html();
+                studentPreviousClass = $(this).parent().prev().prev().prev().prev().html();
+                affectedRow = $(this).closest('tr').children('td');
+                studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
+                submitChangedStatus(studentID, studentCurrentClass, studentPreviousClass, studentCurrentStatus = 'Withdrawn', next_sessionID, termID);
+            } else {
+                alert('select next session and term');
+            }
         });
 
     }
 
     function expellAnIndividual() {
         $('.expell').click(function () {
-            currentStatus = $(this).parent().prev().prev().prev().html();
-            nextStatus = $(this).parent().prev().prev().prev().prev().html('Expelled');
-            studentCurrentClass = $(this).parent().prev().prev().prev().prev().prev().prev().html();
-            studentPreviousClass = $(this).parent().prev().prev().prev().prev().prev().html();
-            affectedRow = $(this).closest('tr').children('td');
-            studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
-            submitChangedStatus(studentID, studentCurrentClass, studentPreviousClass, studentCurrentStatus = 'Expelled', sessionID, termID, classID);
+            if (validateForSubmission() === 'true') {
+                currentStatus = $(this).parent().prev().prev().prev().html();
+                nextStatus = $(this).parent().prev().prev().prev().prev().html('Expelled');
+                studentCurrentClass = $(this).parent().prev().prev().prev().prev().prev().prev().html();
+                studentPreviousClass = $(this).parent().prev().prev().prev().prev().prev().html();
+                affectedRow = $(this).closest('tr').children('td');
+                studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
+                submitChangedStatus(studentID, studentCurrentClass, studentPreviousClass, studentCurrentStatus = 'Expelled', next_sessionID, termID);
+            } else {
+                alert('select next session and term');
+            }
         });
-
     }
 
     function deleteAnIndividual() {
         $('.delete').click(function () {
-            currentStatus = $(this).parent().prev().prev().prev().prev().html();
-            nextStatus = $(this).parent().prev().prev().prev().prev().prev().html('Account deleted');
-            studentCurrentClass = $(this).parent().prev().prev().prev().prev().prev().prev().prev().html();
-            studentPreviousClass = $(this).parent().prev().prev().prev().prev().prev().prev().html();
-            affectedRow = $(this).closest('tr').children('td');
-            studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
-            submitChangedStatus(studentID, studentCurrentClass, studentPreviousClass, studentCurrentStatus = 'Account deleted', sessionID, termID, classID);
+            if (validateForSubmission() === 'true') {
+                if (confirm('Are you sure you want to delete this student?')) {
+                    currentStatus = $(this).parent().prev().prev().prev().prev().html();
+                    nextStatus = $(this).parent().prev().prev().prev().prev().prev().html('Account deleted');
+                    studentCurrentClass = $(this).parent().prev().prev().prev().prev().prev().prev().prev().html();
+                    studentPreviousClass = $(this).parent().prev().prev().prev().prev().prev().prev().html();
+                    affectedRow = $(this).closest('tr').children('td');
+                    studentID = affectedRow.eq(0).find('input.select').attr('data-studentID');
+                    submitChangedStatus(studentID, studentCurrentClass, studentPreviousClass, studentCurrentStatus = 'Account deleted', next_sessionID, termID);
+                    deleteStudentRecord(studentID);
+                }
+            } else {
+                alert('select next session and term');
+            }
+
         });
     }
 
@@ -196,28 +208,32 @@ $(function () {
 
     function promoteSelectedIndividuals() {
         $('button#promote_selected').click(function () {
-            tableRows.each(function (i) {
+            tableRows.each(function () {
                 selectedOptions = $(this).children('td').first('td').find('input.select').is(':checked');
                 if (selectedOptions) {
-                    currentClass = $(this).children().eq(3).html();
-                    curClass = currentClass.toLocaleLowerCase().slice(0, -1);
-                    classArm = currentClass.slice(currentClass.length - 1);
-                    currentStatus = $(this).children().eq(5).html();
-                    nextStatus = $(this).children().eq(5).html('Promoted');
-                    for (let i in classArray) {
-                        if (curClass === classArray[i]) {
-                            i++;
-                            if (i <= classArray.length - 1) {
-                                nextClass = classArray[i].toUpperCase();
-                                $(this).children().eq(3).html(nextClass + classArm);
-                                $(this).children().eq(4).html(currentClass);
-                                studentID = $(this).children('td').eq(0).find('input.select').attr('data-studentID');
-                                submitChangedStatus(studentID, studentCurrentClass = nextClass + classArm, currentClass, studentCurrentStatus = 'Promoted', sessionID, termID, classID);
+                    if (validateForSubmission() === 'true') {
+                        currentClass = $(this).children().eq(3).html();
+                        curClass = currentClass.toLocaleLowerCase().slice(0, -1);
+                        classArm = currentClass.slice(currentClass.length - 1);
+                        currentStatus = $(this).children().eq(5).html();
+                        nextStatus = $(this).children().eq(5).html('Promoted');
+                        for (let i in classArray) {
+                            if (curClass === classArray[i]) {
+                                i++;
+                                if (i <= classArray.length - 1) {
+                                    nextClass = classArray[i].toUpperCase();
+                                    $(this).children().eq(3).html(nextClass + classArm);
+                                    $(this).children().eq(4).html(currentClass);
+                                    studentID = $(this).children('td').eq(0).find('input.select').attr('data-studentID');
+                                    submitChangedStatus(studentID, studentCurrentClass = nextClass + classArm, currentClass, studentCurrentStatus = 'Promoted', next_sessionID, termID);
 
+                                }
+                            } else {
+                                //alert(item[i]);
                             }
-                        } else {
-                            //alert(item[i]);
                         }
+                    } else {
+                        alert('select next session and term');
                     }
 
                 }
@@ -229,25 +245,32 @@ $(function () {
 
     function demoteSelectedIndividuals() {
         $('button#demote_selected').click(function () {
-            tableRows.each(function (i) {
+            tableRows.each(function () {
                 selectedOptions = $(this).children('td').first('td').find('input.select').is(':checked');
                 if (selectedOptions) {
-                    currentClass = $(this).children().eq(3).html();
-                    curClass = currentClass.toLocaleLowerCase().slice(0, -1);
-                    classArm = currentClass.slice(currentClass.length - 1);
-                    //alert(classArm);
-                    currentStatus = $(this).children().eq(5).html();
-                    nextStatus = $(this).children().eq(5).html('Demoted');
-                    for (let i in classArray) {
-                        if (curClass === classArray[i]) {
-                            nextClass = classArray[i].toUpperCase();
-                            //write current class
-                            $(this).children().eq(4).html(currentClass);
-
-                        } else {
-                            //alert(item[i]);
+                    if (validateForSubmission() === 'true') {
+                        currentClass = $(this).children().eq(3).html();
+                        curClass = currentClass.toLocaleLowerCase().slice(0, -1);
+                        classArm = currentClass.slice(currentClass.length - 1);
+                        //alert(classArm);
+                        currentStatus = $(this).children().eq(5).html();
+                        nextStatus = $(this).children().eq(5).html('Repeated');
+                        for (let i in classArray) {
+                            if (curClass === classArray[i]) {
+                                nextClass = classArray[i].toUpperCase();
+                                //write current class
+                                $(this).children().eq(4).html(currentClass);
+                                studentID = $(this).children('td').eq(0).find('input.select').attr('data-studentID');
+                                submitChangedStatus(studentID, studentCurrentClass = nextClass + classArm, currentClass, studentCurrentStatus = 'Repeated', next_sessionID, termID);
+                            } else {
+                                //alert(item[i]);
+                            }
                         }
+                    } else {
+                        alert('select next session and term');
                     }
+
+
                 }
             });
 
@@ -256,11 +279,20 @@ $(function () {
 
     function withdrawSelectedIndividuals() {
         $('button#withdraw_selected').click(function () {
-            tableRows.each(function (i) {
+            tableRows.each(function () {
                 selectedOptions = $(this).children('td').first('td').find('input.select').is(':checked');
                 if (selectedOptions) {
-                    currentStatus = $(this).children().eq(5).html();
-                    nextStatus = $(this).children().eq(5).html('Withdrawn');
+                    if (validateForSubmission() === 'true') {
+                        currentStatus = $(this).children().eq(5).html();
+                        nextStatus = $(this).children().eq(5).html('Withdrawn');
+                        studentCurrentClass = $(this).children().eq(3).html();
+                        currentClass = $(this).children().eq(4).html();
+                        studentID = $(this).children('td').eq(0).find('input.select').attr('data-studentID');
+                        submitChangedStatus(studentID, studentCurrentClass, currentClass, studentCurrentStatus = 'Withdrawn', next_sessionID, termID);
+                    } else {
+                        alert('select next session and term');
+                    }
+
                 }
             });
 
@@ -269,11 +301,20 @@ $(function () {
 
     function expellSelectedIndividuals() {
         $('button#expell_selected').click(function () {
-            tableRows.each(function (i) {
+            tableRows.each(function () {
                 selectedOptions = $(this).children('td').first('td').find('input.select').is(':checked');
                 if (selectedOptions) {
-                    currentStatus = $(this).children().eq(5).html();
-                    nextStatus = $(this).children().eq(5).html('Expelled');
+                    if (validateForSubmission() === 'true') {
+                        currentStatus = $(this).children().eq(5).html();
+                        nextStatus = $(this).children().eq(5).html('Expelled');
+                        studentCurrentClass = $(this).children().eq(3).html();
+                        currentClass = $(this).children().eq(4).html();
+                        studentID = $(this).children('td').eq(0).find('input.select').attr('data-studentID');
+                        submitChangedStatus(studentID, studentCurrentClass, currentClass, studentCurrentStatus = 'Expelled', next_sessionID, termID);
+                    } else {
+                        alert('select next session and term');
+                    }
+
                 }
             });
 
@@ -282,11 +323,24 @@ $(function () {
 
     function deleteSelectedIndividuals() {
         $('button#delete_selected').click(function () {
-            tableRows.each(function (i) {
+            tableRows.each(function () {
                 selectedOptions = $(this).children('td').first('td').find('input.select').is(':checked');
                 if (selectedOptions) {
-                    currentStatus = $(this).children().eq(5).html();
-                    nextStatus = $(this).children().eq(5).html('Account deleted');
+                    if (validateForSubmission() === 'true') {
+                        if (confirm('Are you sure you want to delete this student?') === true) {
+                            currentStatus = $(this).children().eq(5).html();
+                            nextStatus = $(this).children().eq(5).html('Account deleted');
+                            studentCurrentClass = $(this).children().eq(3).html();
+                            currentClass = $(this).children().eq(4).html();
+                            studentID = $(this).children('td').eq(0).find('input.select').attr('data-studentID');
+                            submitChangedStatus(studentID, studentCurrentClass, currentClass, studentCurrentStatus = 'Account deleted', next_sessionID, termID);
+                            deleteStudentRecord(studentID);
+                        }
+                    } else {
+                        alert('select next session and term');
+                    }
+
+
                 }
             });
 
@@ -311,7 +365,7 @@ $(function () {
 
     function toggleAllSelectors() {
         select_all.change(function () {
-            let mainSelector = $(this);
+            mainSelector = $(this);
             tbody.children('tr').each(function () {
                 selector = $(this).children('td').first().find('input.select');
                 if (!selector.is(':checked')) {
@@ -361,31 +415,43 @@ $(function () {
              </tr>`);
         }
         tableRows = $('tbody tr');
-        toggleEachSelector();
-        /*let affectedRow = tbody.children('tr').first('tr').children('td');
-                        let id = affectedRow.eq(0).find('input.select').attr('data-studentID');
-                        alert(id);
-        //sendID();*/
+
     }
 
-    function submitChangedStatus(studentID, studentCurrentClass, currentClass, status, sessionID, termID, classID) {
+    toggleAllSelectors();
+
+    function submitChangedStatus(studentID, studentCurrentClass, currentClass, status, sessionID, termID) {
         $.post('../../../Backend/ClassLibrary/forward_to_change_student_status.php', {
             studentID: studentID,
             currentClass: studentCurrentClass,
             previousClass: currentClass,
             status: status,
-            sessionID: sessionID,
-            termID: termID,
-            classID: classID
+            next_sessionID: next_sessionID,
+            termID: termID
         }, function (res) {
             console.log(res);
         });
 
     }
-    /*function sendID(id){
-        return id;
+
+    function deleteStudentRecord(studentID) {
+        $.post('../../../Backend/ClassLibrary/forward_to_delete_stud_record.php', {
+            ID: studentID
+        }, function (res) {
+            console.log(res);
+        });
+
     }
-*/
+
+    function validateForSubmission() {
+        //alert(termID);
+        if (termID === undefined && next_sessionID === undefined) {
+            return 'false';
+        } else {
+            return 'true';
+        }
+
+    }
 
 
 });

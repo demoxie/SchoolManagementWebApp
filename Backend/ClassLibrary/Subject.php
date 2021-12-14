@@ -4,12 +4,7 @@ $connect = new Db();
 
 class Subject extends Db
 {
-    public $subjectID;
-    public $subjectName;
-    public $subjectTeacher;
-    public $departmentID;
-    public $adminID;
-    public $dateCreated;
+
     public $connect;
 
     public function __construct($connect)
@@ -33,10 +28,26 @@ class Subject extends Db
     {
         try {
             $cs_query = $this->connect->prepare("SELECT `subjectName` FROM `subject` WHERE `subjectID`=$subjectID");
-            $cs_query->execute();
-            if ($cs_query->rowCount() >= 1) {
-                $res = $cs_query->fetch(PDO::FETCH_ASSOC);
-                return $res['subjectName'];
+            if ($cs_query->execute()) {
+                if ($cs_query->rowCount() >= 1) {
+                    $res = $cs_query->fetch(PDO::FETCH_ASSOC);
+                    return $res['subjectName'];
+                }
+            }
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function getCSSubjectName($cs_ID)
+    {
+        try {
+            $cs_query = $this->connect->prepare("SELECT `cs_Name` FROM `combinedsubjects` WHERE `cs_ID`=$cs_ID");
+            if ($cs_query->execute()) {
+                if ($cs_query->rowCount() >= 1) {
+                    $res = $cs_query->fetch(PDO::FETCH_ASSOC);
+                    return $res['cs_Name'];
+                }
             }
 
         } catch (PDOException $e) {
@@ -59,11 +70,37 @@ class Subject extends Db
                 $result[$i]['subject6_ID']=$this->getSubjectName($result[$i]['subject6_ID']);
                 $result[$i]['subject7_ID']=$this->getSubjectName($result[$i]['subject7_ID']);
                 $result[$i]['subject8_ID']=$this->getSubjectName($result[$i]['subject8_ID']);
-               // print_r($result[$i]);
+                // print_r($result[$i]);
 
             }
             return $result;
 
+
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function fetchCS_Subjects_Rows(): mixed
+    {
+        try {
+            $cs_query = $this->connect->prepare("SELECT * FROM `combinedsubjects`");
+            if ($cs_query->execute()) {
+                return $cs_query->fetchAll(PDO::FETCH_ASSOC);
+            }
+
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function classes_not_offering_cs_subjects(): mixed
+    {
+        try {
+            $cs_query = $this->connect->prepare("SELECT `classID` FROM `class_not_offering_cs_subject`");
+            if ($cs_query->execute()) {
+                return $cs_query->fetchAll(PDO::FETCH_ASSOC);
+            }
 
         } catch (PDOException $e) {
             return $e->getMessage();

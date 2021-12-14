@@ -131,4 +131,26 @@ class CodeGenerator extends Db
         }
         return $num . 'th';
     }
+
+    public static function Sort($arr)
+    {
+        usort($arr, "sortByCSAverage");
+    }
+
+    public static function term($termID): string
+    {
+        if ($termID == 1) {
+            return '1st Term';
+        } elseif ($termID == 2) {
+            return '2nd Term';
+        } else {
+            return '3rd Term';
+        }
+
+    }
+
+    public static function sortByCSAverage($a, $b): bool
+    {
+        return $a[4] < $b[4];
+    }
 }

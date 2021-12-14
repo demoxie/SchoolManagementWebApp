@@ -63,10 +63,19 @@ class SchoolClass extends Db
     {
         try {
 
-            $fquery = $this->connect->prepare("SELECT `formMasterName` FROM `formmasters` WHERE `classID`=$classID");
-            $fquery->execute();
-            $result = $fquery->fetch(PDO::FETCH_ASSOC);
-            return $result['formMasterName'];
+            $fquery = $this->connect->prepare("SELECT staffs.staffName FROM (staffs INNER JOIN `formmasters` ON formmasters.staffID=staffs.staffID AND formmasters.classID=$classID)");
+            if ($fquery->execute()) {
+                if ($fquery->rowCount() > 0) {
+                    $result = $fquery->fetch(PDO::FETCH_ASSOC);
+                    return $result['staffName'];
+                } else {
+                    return 'No form master for this class';
+                }
+
+            } else {
+                return 'not done';
+            }
+
 
         } catch (PDOException $e) {
             return $e->getMessage();

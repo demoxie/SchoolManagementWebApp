@@ -85,40 +85,7 @@
 </head>
 <body>
 
-<div class="schoolname col-6">
-    <h2>AG MODERN NUR/PRI/SEC SCHOOL</h2>
-</div>
-<div class="container col-10">
 
-    <hr>
-    <div class="container fluid tag col-6">
-        <h6 class=" promte col">Assessment</h6>
-    </div>
-    <hr>
-    <div class="row col-12">
-        <a href="../Assessment/ca_entry_sheet.php" class="btn btn-primary btn-lg col">CREATE CA TEST<br><i
-                    class="fas fa-edit"></i></a>
-        <a href="#" class="btn btn-primary btn-lg col">CHECK CA TEST RESULTS<br><i class="fas fa-search"></i></a>
-        <a href="../Assessment/exam_entry_sheet.php" class="btn btn-primary btn-lg col">CREATE EXAMS<br><i
-                    class="fas fa-chalkboard-teacher"></i></a>
-        <a href="#" class="btn btn-primary btn-lg col">CHECK EXAMS RESULTS<br><i class="fas fa-binoculars"></i></a>
-        <a href="#" class="btn btn-primary btn-lg col">PERFORMANCE ANALYSIS<br><i class="fas fa-chart-line"></i></a>
-    </div>
-    <hr>
-    <div class="container fluid tag col-6">
-        <h6 class=" promte col">Promote</h6>
-        <h6 class="demote col">Demote</h6>
-
-    </div>
-    <hr>
-    <div class="row col-12">
-        <a href="#" class="btn btn-primary btn-lg col">CARRY OUT OPERATION INDIVIDUALLY<br><i
-                    class="fas fa-certificate"></i> <i class="fas fa-user"></i></a>
-        <a href="#" class="btn btn-primary btn-lg col">CARRY OUT OPERATION BY CLASS<br><i
-                    class="fas fa-certificate"></i> <i class="fas fa-user-friends"></i></a>
-
-    </div>
-</div>
 
 </body>
 

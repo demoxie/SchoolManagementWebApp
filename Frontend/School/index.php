@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../Pluggins/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Stylesheets/top-nav-bar.css">
     <link rel="icon" href="../../Backend/Src/Icons/rfc-logo.jpg">
     <script src="../Pluggins/Jquery/jquery-3.5.1.min.js"></script>
     <script src="../Scripts/add_school_data.js"></script>
@@ -64,7 +65,8 @@
             background: darkgreen;
             color: white;
         }
-        #add_school_data:hover{
+
+        #add_school_data:hover {
             background: limegreen;
         }
 
@@ -72,16 +74,35 @@
     </style>
 </head>
 <body>
+<!--Top Nav-bar-->
+<div id="top-nav-bar">
+    <div id="nav-item-container">
+        <a class="btn nav-btn"><i class="fas fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;Home</a>
+        <a class="btn nav-btn"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
+    </div>
+    <div id="user">
+        <a class="btn nav-btn"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;&nbsp;logout</a>
+    </div>
+
+</div>
+<!--Ends here-->
 <form class="form-inline col-10" id="school_data_entry_form" method="post" role="form">
     <div class="container">
         <div class="col-12" id="result"></div>
-        <div class="input-container"><input class="form-control" name="school_name" id="school_name" placeholder="school name" type="text"></div>
-        <div class="input-container"><input class="form-control" name="school_address" id="school_address" placeholder="school address" type="text"></div>
-        <div class="input-container"><input class="form-control" name="school_phone" id="school_phone" placeholder="school phone" type="tel"></div>
-        <div class="input-container"><input class="form-control" name="school_email" id="school_email" placeholder="school email" type="email"></div>
-        <div class="input-container"><input class="form-control" name="school_postal_box" id="school_postal_box" placeholder="school postal box" type="text"></div>
-        <div class="input-container"><input class="form-control" name="school_motto" id="school_motto" placeholder="school motto" type="text"></div>
-        <div class="input-container"><input class="form-control" name="school_logo" id="school_logo" placeholder="school logo" type="file"></div>
+        <div class="input-container"><input class="form-control" name="school_name" id="school_name"
+                                            placeholder="school name" type="text"></div>
+        <div class="input-container"><input class="form-control" name="school_address" id="school_address"
+                                            placeholder="school address" type="text"></div>
+        <div class="input-container"><input class="form-control" name="school_phone" id="school_phone"
+                                            placeholder="school phone" type="tel"></div>
+        <div class="input-container"><input class="form-control" name="school_email" id="school_email"
+                                            placeholder="school email" type="email"></div>
+        <div class="input-container"><input class="form-control" name="school_postal_box" id="school_postal_box"
+                                            placeholder="school postal box" type="text"></div>
+        <div class="input-container"><input class="form-control" name="school_motto" id="school_motto"
+                                            placeholder="school motto" type="text"></div>
+        <div class="input-container"><input class="form-control" name="school_logo" id="school_logo"
+                                            placeholder="school logo" type="file"></div>
         <div class="input-container"><select class="form-select" name="head_teacher" id="head_teacher" >
                 <option selected disabled>Head Teacher</option>
             </select></div>

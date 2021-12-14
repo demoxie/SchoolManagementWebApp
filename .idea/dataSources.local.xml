@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal">
+  <component name="dataSourceStorageLocal" created-in="PS-212.5457.49">
     <data-source name="MySQL - @localhost" uuid="b8fd2469-8364-4cd9-878f-5a44cd743361">
       <database-info product="MySQL" version="5.7.21" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MYSQL" exact-version="5.7.21" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
@@ -16,13 +16,13 @@
       </schema-mapping>
     </data-source>
     <data-source name="smwa" uuid="46153a9f-804d-48a9-ae5f-18b3fbfecfba">
-      <database-info product="MySQL" version="5.7.21" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MYSQL" exact-version="5.7.21">
+      <database-info product="MySQL" version="8.0.21" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MYSQL" exact-version="8.0.21" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
-      <user-name>moxie</user-name>
+      <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
           <node kind="schema" qname="@" />

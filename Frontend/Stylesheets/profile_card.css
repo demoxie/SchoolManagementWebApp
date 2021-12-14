@@ -29,7 +29,7 @@ img {
 
 .row {
     border: 1px solid #ccc;
-    margin: 0 auto;
+    margin: 0 0;
 }
 
 h5 {
@@ -48,8 +48,10 @@ span {
     background-color: black;
     color: whitesmoke;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    justify-items: flex-start;
     align-items: center;
+    margin-left: 0;
 }
 
 .block-content {

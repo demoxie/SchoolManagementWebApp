@@ -103,9 +103,9 @@
             padding: 0;
         }
 
-        .choice {
+        .first_row {
             display: grid;
-            grid-template-columns: auto auto auto;
+            grid-template-columns: auto auto auto auto;
             justify-content: stretch;
             margin: auto;
             grid-gap: 1em;
@@ -120,7 +120,7 @@
         }
 
         @media screen and (max-width: 560px) {
-            .choice {
+            .first_row {
                 grid-template-columns: auto;
             }
 
@@ -130,7 +130,7 @@
         }
 
         @media screen and (min-width: 561px) and  (max-width: 720px) {
-            .choice {
+            .first_row {
                 grid-template-columns: auto auto;
             }
 
@@ -138,9 +138,6 @@
                 grid-template-columns: auto auto;
             }
 
-            .term {
-                grid-column: 1 / span 2;
-            }
         }
 
         tbody tr td:nth-child(6) {
@@ -219,8 +216,14 @@
             <option selected disabled>CLASS</option>
 
         </select>
-        <select name="session" class="form-select session col" id="session" aria-label="Default select example">
-            <option selected disabled>SESSION</option>
+        <select name="current_session" class="form-select session col" id="current_session"
+                aria-label="Default select example">
+            <option selected disabled>CURRENT SESSION</option>
+
+        </select>
+        <select name="next_session" class="form-select session col" id="next_session"
+                aria-label="Default select example">
+            <option selected disabled>NEXT SESSION</option>
 
         </select>
         <select name="term" class="form-select term col" id="term" aria-label="Default select example">
@@ -238,7 +241,7 @@
         </div>
         <div>
             <button type="button" class="form-control status_changers" id="demote_selected"><i
-                        class="fas fa-arrow-down"></i>&nbsp;&nbsp;Demote Selected
+                        class="fas fa-arrow-down"></i>&nbsp;&nbsp;Repeat Selected
             </button>
         </div>
         <div>
@@ -248,7 +251,7 @@
         </div>
         <div>
             <button type="button" class="form-control status_changers" id="expell_selected"><i
-                        class="fas fa-walking"></i>&nbsp;&nbsp;Expell Selected
+                        class="fas fa-walking"></i>&nbsp;&nbsp;Expel Selected
             </button>
         </div>
         <div>
@@ -284,9 +287,9 @@
                 <th>PREVIOUS CLASS</th>
                 <th>STATUS</th>
                 <th>PROMOTE</th>
-                <th>DEMOTE</th>
+                <th>REPEAT</th>
                 <th>WITHDRAW</th>
-                <th>EXPELL</th>
+                <th>EXPEL</th>
                 <th>DELETE</th>
             </tr>
             </thead>

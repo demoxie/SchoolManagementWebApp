@@ -3,8 +3,6 @@
 require_once("../../Backend/ClassLibrary/Upload.php");
 require_once("../../Backend/ClassLibrary/CodeGenerator.php");
 
-//$connect = new Db();
-
 class Student extends Db
 {
 
@@ -25,32 +23,14 @@ class Student extends Db
             $sql = $this->connect->prepare("SELECT students.name,students.admissionNO,students.studentID,students.passport,studentstatus.status,studentstatus.currentClassID
 FROM students
 INNER JOIN studentstatus ON students.studentID = studentstatus.studentID AND students.admissionNO='$admissionNO'");
-            $sql->execute();
-            if ($sql->rowCount() >= 1) {
-                return $sql->fetch(PDO::FETCH_ASSOC);
-            } else {
-                return 'false';
+            if ($sql->execute()) {
+                if ($sql->rowCount() > 0) {
+                    return $sql->fetch(PDO::FETCH_ASSOC);
+                } else {
+                    return 'false';
+                }
             }
 
-
-        } catch (PDOException $e) {
-
-            return $e->getMessage();
-        }
-    }
-
-
-    public
-    function checkIfStudentExists($guardianEmail, $guardianPhone)
-    {
-        try {
-            $sql = $this->connect->prepare("SELECT `guardianEmail`,`guardianPhone` FROM `students` WHERE `guardianEmail`='$guardianEmail' AND `guardianPhone` ='$guardianPhone';");
-            $sql->execute();
-            if ($sql->rowCount() > 0) {
-                return true;
-            } else {
-                return false;
-            }
 
         } catch (PDOException $e) {
 
@@ -62,23 +42,15 @@ INNER JOIN studentstatus ON students.studentID = studentstatus.studentID AND stu
     function verifyRegistrationCode($reg_code)
     {
         try {
-            $sql = $this->connect->prepare("SELECT `registrationCode` FROM `students` WHERE `registrationCode`='$reg_code'");
+            $sql = $this->connect->prepare("SELECT `studentID` FROM `students` WHERE `registrationCode`='$reg_code'");
             $sql->execute();
             if ($sql->rowCount() > 0) {
                 $result = $sql->fetch(PDO::FETCH_ASSOC);
-                if (empty($result['registrationCode']) | $result['registrationCode'] === 0) {
-                    return $result['registrationCode'];
-                } else {
-
-                    $sql = $this->connect->prepare("SELECT `presentClass` FROM `students` WHERE `registrationCode`='$reg_code'");
-                    $sql->execute();
-                    $result = $sql->fetch(PDO::FETCH_ASSOC);
-                    $adm_no = CodeGenerator::createAdmissionNO($result['presentClass']);
-                    $currentYear = date('Y');
-                    $sql_ins = $this->connect->prepare("UPDATE `students` SET `admissionNO`='$adm_no',`applicationStatus`='Approved',`yearApproved`='$currentYear' WHERE `registrationCode`='$reg_code'");
-                    $sql_ins->execute();
-                    return $adm_no;
-                }
+                $arr = array('registered', $result['studentID']);
+                return json_encode($arr, JSON_PRETTY_PRINT);
+            } else {
+                $arr = array('not registered');
+                return json_encode($arr, JSON_PRETTY_PRINT);
             }
 
         } catch (PDOException $e) {
@@ -139,8 +111,10 @@ INNER JOIN studentstatus ON students.studentID = studentstatus.studentID AND stu
                     $sql->bindParam(':spiritualBehavior', $spiritualBehavior);
                     $sql->bindParam(':registrationCode', $registrationCode);
                     $sql->bindParam(':dateApplied', $dateApplied);
-                    $sql->execute();
-                    return Db::giveSuccessAlert('Application submitted successfully');
+                    if ($sql->execute()) {
+                        return array('message' => $registrationCode);
+                    }
+
 
                 }
 
@@ -150,6 +124,91 @@ INNER JOIN studentstatus ON students.studentID = studentstatus.studentID AND stu
 
         } catch (PDOException $e) {
             return Db::giveDangerAlert($e->getMessage());
+        }
+    }
+
+    public
+    function checkIfStudentExists($guardianEmail, $guardianPhone)
+    {
+        try {
+            $sql = $this->connect->prepare("SELECT `guardianEmail`,`guardianPhone` FROM `students` WHERE `guardianEmail`='$guardianEmail' AND `guardianPhone` ='$guardianPhone';");
+            $sql->execute();
+            if ($sql->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (PDOException $e) {
+
+            return $e->getMessage();
+        }
+    }
+
+    public function adddStatus($studentID, $previousClassID, $currentClassID, $termID, $sessionID, $status)
+    {
+        try {
+            if ($this->checkIfAdmitted($studentID) === 'false') {
+                $query = $this->connect->prepare("INSERT INTO `studentstatus`(`statusID`, `studentID`, `previousClassID`, `currentClassID`, `termID`, `sessionID`, `status`, `dateExecuted`) VALUES (null,$studentID,$previousClassID,$currentClassID,$termID,$sessionID,'$status',CURRENT_TIMESTAMP)");
+                if ($query->execute()) {
+                    $sql = $this->connect->prepare("SELECT `presentClass` FROM `students` WHERE `studentID`='$studentID'");
+                    if ($sql->execute()) {
+                        $result = $sql->fetch(PDO::FETCH_ASSOC);
+                        $adm_no = CodeGenerator::createAdmissionNO($result['presentClass']);
+                        $currentYear = date('Y');
+                        $sql_ins = $this->connect->prepare("UPDATE `students` SET `admissionNO`='$adm_no',`applicationStatus`='Approved',`yearApproved`='$currentYear' WHERE `studentID`='$studentID'");
+                        if ($sql_ins->execute()) {
+                            $query = $this->connect->prepare("INSERT INTO `role`(`roleID`, `username`, `role`) VALUES (null,'$adm_no','student')");
+                            if ($query->execute()) {
+                                return $adm_no;
+                            }
+
+                        } else {
+                            return 'failed';
+                        }
+                    } else {
+                        return 'failed';
+                    }
+
+
+                } else {
+                    return 'failed';
+                }
+            } else {
+                return 'Admitted';
+            }
+
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    function checkIfAdmitted($studentID)
+    {
+        try {
+            $sql = $this->connect->prepare("SELECT * FROM `studentstatus` WHERE `studentID`=$studentID AND `status`='Admitted'");
+            $sql->execute();
+            if ($sql->rowCount() > 0) {
+                return 'true';
+            } else {
+                return 'false';
+            }
+
+        } catch (PDOException $e) {
+
+            return $e->getMessage();
+        }
+    }
+
+    public function fetch_all_Student_in_a_Class_who_can_see_Result($classID)
+    {
+        try {
+            $query1 = $this->connect->prepare("SELECT `studentID` FROM `studentstatus` WHERE `status` LIKE 'Prom%' AND `currentClassID`=$classID  OR `status` LIKE 'Admit%' AND `currentClassID`=$classID OR `status` LIKE 'Repeat%' AND `currentClassID`=$classID OR `status` LIKE 'Withdrawn%' AND `currentClassID`=$classID");
+            if ($query1->execute()) {
+                return $result = $query1->fetchAll(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            return $e->getMessage();
         }
     }
 
@@ -181,14 +240,11 @@ INNER JOIN studentstatus ON students.studentID = studentstatus.studentID AND stu
     }
 
     public
-    function fetchStudentByClass($class_id)
+    function fetchStudentByClass($class_id): string
     {
         try {
 
-            $query = $this->connect->prepare("SELECT students.studentID,students.name, students.admissionNO, students.gender, CONCAT(class.class,class.classArm) AS class,studentstatus.Status,students.passport,students.dateOfBirth,students.dateApplied,students.guardianPhone
-FROM ((students
-INNER JOIN studentstatus ON students.studentID = studentstatus.studentID)
-INNER JOIN class ON studentstatus.currentClassID = class.classID AND studentstatus.currentClassID=$class_id)");
+            $query = $this->connect->prepare("SELECT students.studentID,students.name, students.admissionNO, students.gender, CONCAT(class.class,class.classArm) AS class,studentstatus.Status,students.passport,students.dateOfBirth,students.dateApplied,students.guardianPhone FROM ((studentstatus INNER JOIN students ON students.studentID = studentstatus.studentID) INNER JOIN class ON studentstatus.currentClassID = class.classID AND studentstatus.currentClassID=" . $class_id . ") WHERE status LIKE 'Admit%' OR status LIKE 'Promot%' OR status LIKE 'Repeat%'");
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             return json_encode($result, JSON_PRETTY_PRINT);
@@ -227,14 +283,43 @@ INNER JOIN class ON studentstatus.currentClassID = class.classID AND studentstat
         }
     }
 
+    /*    public
+        function fetchStudentWhoCanSesResultBySession($session_id)
+        {
+            try {
+
+                $query = $this->connect->prepare("SELECT students.studentID,students.name, students.admissionNO, students.gender, CONCAT(class.class,class.classArm) AS class,studentstatus.Status,students.passport,students.dateOfBirth,students.dateApplied,students.guardianPhone
+    FROM ((studentstatus
+    INNER JOIN students ON students.studentID = studentstatus.studentID)
+    INNER JOIN class ON class.classID = studentstatus.currentClassID) WHERE studentstatus.sessionID=$session_id AND status LIKE 'Admit%' OR status LIKE 'Prom%' OR status LIKE 'Repeat%' OR status LIKE 'With%' OR status LIKE 'graduat%' ");
+                $query->execute();
+                $result = $query->fetchAll(PDO::FETCH_ASSOC);
+                return json_encode($result, JSON_PRETTY_PRINT);
+            } catch (PDOException $e) {
+                return $e->getMessage();
+            }
+        }*/
+
+    public
+    function fetchStudentWhoCanSesResultByClassAndSession($class_id, $session_id): string
+    {
+        try {
+
+            $query = $this->connect->prepare("SELECT students.studentID,students.name, students.admissionNO, students.gender, CONCAT(class.class,class.classArm) AS class,studentstatus.Status,students.passport,students.dateOfBirth,students.dateApplied,students.guardianPhone FROM ((studentstatus INNER JOIN students ON students.studentID = studentstatus.studentID) INNER JOIN class ON class.classID = studentstatus.currentClassID AND studentstatus.currentClassID=$class_id AND studentstatus.sessionID=$session_id) WHERE status LIKE 'Admit%' OR status LIKE 'Prom%' OR status LIKE 'Repeat%' OR status LIKE 'With%' OR status LIKE 'graduat%' ");
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($result, JSON_PRETTY_PRINT);
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
     public
     function fetchAllStudent()
     {
         try {
-            $query = $this->connect->prepare("SELECT students.studentID,students.name, students.AdmissionNO, students.gender, CONCAT(class.class,class.classArm) AS class,studentstatus.Status,students.passport,students.dateOfBirth,students.dateApplied,students.guardianPhone
-FROM ((students
-INNER JOIN studentstatus ON students.studentID = studentstatus.studentID)
-INNER JOIN class ON studentstatus.currentClassID = class.classID)");
+            $query = $this->connect->prepare("SELECT students.studentID,students.name, students.AdmissionNO, students.gender, CONCAT(class.class,class.classArm) AS class,studentstatus.Status,students.passport,students.dateOfBirth,students.dateApplied,students.guardianPhone FROM ((studentstatus INNER JOIN students ON students.studentID = studentstatus.studentID) INNER JOIN class ON studentstatus.currentClassID = class.classID) WHERE status LIKE 'Admit%' OR status LIKE 'Promot%' OR status LIKE 'Repeat%'");
+
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
             return json_encode($result, JSON_PRETTY_PRINT);
@@ -243,6 +328,7 @@ INNER JOIN class ON studentstatus.currentClassID = class.classID)");
             return $e->getMessage();
         }
     }
+
     function fetchStudentStatus()
     {
         try {
@@ -259,21 +345,23 @@ FROM
     )");
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
-            for ($i = 0;$i<count($result); $i++){
+            for ($i = 0; $i < count($result); $i++) {
                 $previousClassID = $result[$i]['previousClassID'];
                 $fetch_previous_class_query = $this->connect->prepare("SELECT CONCAT(class.class,class.classArm) AS previousClass  FROM class WHERE class.classID=$previousClassID");
                 $fetch_previous_class_query->execute();
                 $val = $fetch_previous_class_query->fetch(PDO::FETCH_ASSOC);
                 //return $val;
                 //return json_encode($val,JSON_PRETTY_PRINT);
-                array_push($result[$i],$val);
+                array_push($result[$i], $val);
             }
-           return json_encode($result, JSON_PRETTY_PRINT);
+            return json_encode($result, JSON_PRETTY_PRINT);
 
         } catch (PDOException $e) {
             return $e->getMessage();
         }
     }
+
+
     function fetchStudentStatusByClass($classID)
     {
         try {
@@ -287,17 +375,17 @@ FROM
         students
     JOIN studentstatus ON students.studentID = studentstatus.studentID AND studentstatus.currentClassID=$classID
     JOIN class ON studentstatus.currentClassID = class.classID
-    )");
+    ) WHERE studentstatus.status LIKE 'Promo%' OR studentstatus.status LIKE 'Admit%' OR studentstatus.status LIKE 'Repeat%' OR studentstatus.status LIKE 'Withdrawn%'");
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
-            for ($i = 0;$i<count($result); $i++){
+            for ($i = 0; $i < count($result); $i++) {
                 $previousClassID = $result[$i]['previousClassID'];
                 $fetch_previous_class_query = $this->connect->prepare("SELECT CONCAT(class.class,class.classArm) AS previousClass  FROM class WHERE class.classID=$previousClassID");
                 $fetch_previous_class_query->execute();
                 $val = $fetch_previous_class_query->fetch(PDO::FETCH_ASSOC);
                 //return $val;
                 //return json_encode($val,JSON_PRETTY_PRINT);
-                array_push($result[$i],$val);
+                array_push($result[$i], $val);
             }
             return json_encode($result, JSON_PRETTY_PRINT);
 
@@ -305,6 +393,7 @@ FROM
             return $e->getMessage();
         }
     }
+
     function fetchStudentStatusBySession($sessionID)
     {
         try {
@@ -318,17 +407,17 @@ FROM
         students
     JOIN studentstatus ON students.studentID = studentstatus.studentID AND studentstatus.sessionID=$sessionID
     JOIN class ON studentstatus.currentClassID = class.classID
-    )");
+    ) WHERE studentstatus.status LIKE 'Promo%' OR studentstatus.status LIKE 'Admit%' OR studentstatus.status LIKE 'Repeat%' OR studentstatus.status LIKE 'Withdrawn%'");
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
-            for ($i = 0;$i<count($result); $i++){
+            for ($i = 0; $i < count($result); $i++) {
                 $previousClassID = $result[$i]['previousClassID'];
                 $fetch_previous_class_query = $this->connect->prepare("SELECT CONCAT(class.class,class.classArm) AS previousClass  FROM class WHERE class.classID=$previousClassID");
                 $fetch_previous_class_query->execute();
                 $val = $fetch_previous_class_query->fetch(PDO::FETCH_ASSOC);
                 //return $val;
                 //return json_encode($val,JSON_PRETTY_PRINT);
-                array_push($result[$i],$val);
+                array_push($result[$i], $val);
             }
             return json_encode($result, JSON_PRETTY_PRINT);
 
@@ -336,7 +425,8 @@ FROM
             return $e->getMessage();
         }
     }
-    function fetchStudentStatusByClassAndSession($classID,$sessionID)
+
+    function fetchStudentStatusByClassAndSession($classID, $sessionID)
     {
         try {
             $query = $this->connect->prepare("SELECT
@@ -347,19 +437,19 @@ FROM
 FROM
     (
         students
-    JOIN studentstatus ON students.studentID = studentstatus.studentID AND studentstatus.currentClassID=$classID AND studentstatus.sessionID=$sessionID
+    JOIN studentstatus ON students.studentID = studentstatus.studentID AND studentstatus.currentClassID=$classID
     JOIN class ON studentstatus.currentClassID = class.classID
-    )");
+    ) WHERE studentstatus.status LIKE 'Promo%' OR studentstatus.status LIKE 'Admit%' OR studentstatus.status LIKE 'Repeat%' OR studentstatus.status LIKE 'Withdrawn%'");
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_ASSOC);
-            for ($i = 0;$i<count($result); $i++){
+            for ($i = 0; $i < count($result); $i++) {
                 $previousClassID = $result[$i]['previousClassID'];
                 $fetch_previous_class_query = $this->connect->prepare("SELECT CONCAT(class.class,class.classArm) AS previousClass  FROM class WHERE class.classID=$previousClassID");
                 $fetch_previous_class_query->execute();
                 $val = $fetch_previous_class_query->fetch(PDO::FETCH_ASSOC);
                 //return $val;
                 //return json_encode($val,JSON_PRETTY_PRINT);
-                array_push($result[$i],$val);
+                array_push($result[$i], $val);
             }
             return json_encode($result, JSON_PRETTY_PRINT);
 
@@ -400,6 +490,35 @@ INNER JOIN class ON studentstatus.currentClassID = class.classID)");
             return $e->getMessage();
         }
     }
+
+    public
+    function updateStudentStatus($studentID, $currentClass, $previousClass, $status, $sessionID, $termID)
+    {
+
+        $previousClass = substr($previousClass, 0, -1);
+        $currentClass = substr($currentClass, 0, -1);
+        $query1 = $this->connect->prepare("SELECT `classID` FROM `class` WHERE `class`='$currentClass'");
+        $query2 = $this->connect->prepare("SELECT `classID` FROM `class` WHERE `class`='$previousClass'");
+        $query1->execute();
+        $query2->execute();
+        $result1 = $query1->fetch(PDO::FETCH_ASSOC);
+        $result2 = $query2->fetch(PDO::FETCH_ASSOC);
+        $currentClassID = $result1['classID'];
+        $previousClassID = $result2['classID'];
+        try {
+            $query = $this->connect->prepare("UPDATE `studentstatus` SET `previousClassID`=$previousClassID,`currentClassID`=$currentClassID,`termID`=$termID,`sessionID`=$sessionID,`status`='$status',`dateExecuted`=CURRENT_TIMESTAMP WHERE `studentID`=$studentID");
+            if ($query->execute()) {
+                return 'Status Update successfully';
+                //return $query;
+            } else {
+                return 'unable to execute';
+            }
+
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
 
     public
     function deleteStudentRecord($studentID)

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./_css/icon.css">
     <title>Staff Registration Form</title>
+    <link rel="icon" href="../../Backend/Src/Icons/rfc-logo.jpg">
     <link rel="stylesheet" href="../Pluggins/Bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../Pluggins/awesome/css/fontawesome.min.css">
     <script src="../Pluggins/Jquery/jquery-3.5.1.min.js"></script>
@@ -31,7 +32,8 @@
 
         .form-control,
         .btn {
-            border-radius: 3px;
+            border-radius: 1.5rem;
+            border: 3px solid orangered;
         }
 
         .signup-form {
@@ -92,10 +94,17 @@
         .signup-form .btn {
             font-size: 16px;
             font-weight: bold;
-            min-width: 140px;
+            width: 15rem;
+            margin: auto;
             outline: none !important;
-            background-color: purple;
-            color: whitesmoke;
+            background-color: #ccc;
+            color: orangered;
+        }
+
+        .signup-form .btn:hover {
+            background-color: orangered;
+            color: white;
+            border-color: gray;
         }
 
         .signup-form .row div:first-child {
@@ -123,13 +132,38 @@
         .signup-form form a:hover {
             text-decoration: underline;
         }
+
+        @media screen and (max-width: 25rem) {
+            .form-group {
+                display: block;
+                margin-inline: auto;
+            }
+
+            .form-group .row {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-content: center;
+            }
+
+            .row {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: stretch;
+            }
+
+            .row input {
+                margin-block: 0.5rem;
+            }
+        }
     </style>
 </head>
 
 <body>
 <div class="signup-form col-xs-11 col-sm-11 col-md-10 col-xl-6 col-lg-7">
     <form method="post" enctype="multipart/form-data" class="col-12" id="addBook">
-        <h2>Add Books</h2>
+        <h2>UPLOAD BOOKS</h2>
         <p class="hint-text">Upload your book here. It's free and only takes a minute.</p>
         <div class="form-group">
             <div class="row">
@@ -169,14 +203,13 @@
         </div>
 
         <div class="form-group">
-            <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms
-                    of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-lg btn-block">Register Now</button>
+            <button type="submit" class="btn btn-lg btn-block">Upload Book</button>
         </div>
     </form>
-    <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+    <!--<div class="text-center">Already have an account? <a href="#">Sign in</a></div>-->
 </div>
 </body>
 

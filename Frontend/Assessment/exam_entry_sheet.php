@@ -79,7 +79,7 @@
 
     </div>
 
-    <div class="row choice g-3">
+    <div class="row first_row g-3">
         <select name="class" class="form-select selectpicker myclass col" id="class"
                 aria-label="Default select example">
             <option selected disabled>CLASS</option>

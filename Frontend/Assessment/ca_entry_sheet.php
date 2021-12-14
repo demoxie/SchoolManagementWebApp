@@ -60,13 +60,13 @@
             float: right;
         }
 
-        .theading {
+        .above_table_row {
             display: flex;
             justify-content: space-between;
             align-content: center;
         }
 
-        .btn,input {
+        .btn, input {
             background-color: darkgreen;
             color: white;
         }
@@ -81,14 +81,14 @@
 <form class="form-inline col-10" id="ca_entry_form" method="post" enctype="multipart/form-data" role="form">
     <div class="container result" id="result" style="overflow: auto"></div>
 
-    <div class="theading row col-12">
+    <div class="above_table_row row col-12">
         <div class="title col-6">
             <h2>AG MODERN NUR/PRI/SEC SCHOOL</h2>
         </div>
 
     </div>
 
-    <div class="row choice g-3">
+    <div class="row first_row g-3">
         <select name="class" class="form-select myclass col" id="class" aria-label="Default select example">
             <option selected disabled>CLASS</option>
 
@@ -112,7 +112,7 @@
     <hr>
 
 
-    <div class="theading row col-12">
+    <div class="above_table_row row col-12">
         <div class="className col"><h6><strong id="one">CLASS:</strong> <u><b id="display_class"></b></u></h6></div>
         <div class="formaster col"><h6><strong id="two">FORM MASTER:</strong> <u><b id="form"
                                                                                     class="form_master"></b></u></h6>
@@ -126,7 +126,7 @@
         <button type="button" class="btn upper-save col-2">Save</button>
     </div>
     <hr>
-    <div class="theading row col-12">
+    <div class="above_table_row row col-12">
         <div class="search col-3">
             <input type="text" class="form-control" id="search" name="search" placeholder="Search Names">
             <br>

@@ -43,9 +43,9 @@ $(document).ready(function () {
                         <td>${Number(x) + 1}</td><td>${resData[x].name}</td><td>${resData[x].AdmissionNO}</td><td>${gender(resData[x].gender)}</td>
                         <td>${resData[x].class}</td><td class="status_col">${resData[x].Status}</td>
                         <td style="text-align: center;font-size: 10px">
-                        <a href="#" class="view" title="View" data-toggle="tooltip" data-student-id="${resData[x].studentID}"><i class="fa fa-eye"></i></a>
-                        <a href="#" class="edit" title="Edit" data-toggle="tooltip" data-student-id="${resData[x].studentID}"><i class="fa fa-pen"></i></a>
-                        <a href="#" class="delete" title="Delete" data-toggle="tooltip" data-student-id="${resData[x].studentID}"><i class="fa fa-trash"></i></a>
+                        <a href="#" class="view" title="View" data-toggle="tooltip" data-student-id="${resData[x].studentID}"><i class="fa fa-eye fa-2x"></i></a>
+                        <a href="#" class="edit" title="Edit" data-toggle="tooltip" data-student-id="${resData[x].studentID}"><i class="fa fa-pen fa-2x"></i></a>
+                        <a href="#" class="delete" title="Delete" data-toggle="tooltip" data-student-id="${resData[x].studentID}"><i class="fa fa-trash fa-2x"></i></a>
                     </td></tr>`);
         }
 

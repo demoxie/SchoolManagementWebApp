@@ -1,4 +1,314 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+    font-family: "Trebuchet MS", fantasy;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: space-between;
+    align-items: stretch;
+    background-color: white;
+    padding-block: 30px;
+    margin-block: 30px;
+    border-radius: 5px;
+}
+
+.container h3 {
+    text-align: center;
+    border: 2px solid #0d152a;
+    color: orangered;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    font-weight: bold;
+
+}
+
+.form_step_label {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+    align-items: baseline;
+}
+
+.form_step_label:hover {
+    cursor: pointer;
+}
+
+.numbering {
+    border: 2px solid #0d152a;
+    border-radius: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.header {
+    margin-block: 15px;
+}
+
+.numbering h6 {
+    text-align: center;
+    margin: auto;
+    color: #0d152a;
+}
+
+fieldset {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 10px;
+}
+
+fieldset h6 {
+    text-align: center;
+    font-weight: bold;
+    margin-block: 15px;
+    color: #0d152a;
+}
+
+#image-input-container {
+    margin-block: 20px;
+}
+
+.button-container {
+    margin-block: 20px;
+}
+
+.button-container .btn {
+    border: 2px solid orangered;
+    border-radius: 1.5rem;
+    background-color: #0d152a;
+    color: whitesmoke;
+    text-align: center;
+    padding: 4px 30px;
+}
+
+#admission-form fieldset:not(:first-of-type) {
+    display: none;
+    margin: 0 auto;
+}
+
+.form-control, .custom-select {
+    border: none;
+    border-bottom: 1px solid #0b2e13;
+    background: none;
+    border-radius: 0;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0;
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+textarea.form-control:hover,
+input.form-control:hover,
+textarea.form-control:active,
+select.custom-select:focus,
+input.form-control:active,
+textarea.form-control:focus,
+input.form-control:focus,
+.close,
+.try_again,
+.btn:active {
+    outline: none !important;
+    -webkit-appearance: none !important;
+    box-shadow: none !important;
+}
+
+.close {
+    border-style: none;
+    padding: 5px 15px;
+    font-size: 15px;
+    background: none;
+}
+
+.try_again {
+    border-style: none;
+    background: orange;
+    color: white;
+    padding: 5px 25px;
+    border-radius: 20px;
+}
+
+.modal_icon {
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: stretch;
+        grid-row-gap: 10px;
+        margin-block: 20px;
+    }
+
+    .input_container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 20px;
+    }
+
+}
+
+@media screen  and (min-width: 602px) and (max-width: 992px) {
+    div.header {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .form_step_label {
+        margin-block: 5px;
+    }
+
+    .input_container {
+        display: grid;
+        grid-template-columns: 31% 31% 31%;
+        grid-column-gap: 20px;
+    }
 
 
+}
 
+@media screen  and (min-width: 993px) {
+    div.header {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
 
+    .input_container {
+        display: grid;
+        grid-template-columns: 31% 31% 31%;
+        grid-column-gap: 20px;
+    }
+}
+
+/*MODAL BOX STYLE GOES DOWN HERE------------------------------------------------------------------------------------*/
+.modal-confirm {
+    color: #434e65;
+    width: 525px;
+    margin: 30px auto;
+}
+
+.modal-confirm .modal-content {
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+.modal-confirm .modal-header {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background: #47c9a2;
+    border-bottom: none;
+    position: relative;
+    text-align: center;
+    margin: -20px -20px 0;
+    border-radius: 5px 5px 0 0;
+    padding: 35px;
+}
+
+.modal-confirm h4 {
+    text-align: center;
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.modal-confirm .form-control, .modal-confirm .btn {
+    min-height: 40px;
+    border-radius: 3px;
+}
+
+.modal-confirm .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    text-shadow: none;
+    opacity: 0.5;
+}
+
+.modal-confirm .close:hover {
+    opacity: 0.8;
+}
+
+.modal-confirm .icon-box {
+    color: #fff;
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    border-radius: 50%;
+    z-index: 9;
+    border: 5px solid #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.modal-confirm .icon-box i {
+    font-size: 64px;
+    margin: -4px 0 0 -4px;
+}
+
+.modal-confirm .btn {
+    color: #fff;
+    border-radius: 4px;
+    background: #eeb711;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 6px 20px;
+    border: none;
+}
+
+.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+    background: #eda645;
+    outline: none;
+}
+
+.modal-confirm .btn span {
+    margin: 1px 3px 0;
+    float: left;
+}
+
+.modal-confirm .btn i {
+    margin-left: 1px;
+    font-size: 20px;
+    float: right;
+}
+
+.trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+}
+
+/*ENDS HERE ---------------------------------------------------------------------------------------*/

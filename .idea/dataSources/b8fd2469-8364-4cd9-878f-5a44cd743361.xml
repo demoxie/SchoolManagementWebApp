@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="MySQL - @localhost">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.20">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.23">
     <root id="1">
       <ServerVersion>5.7.21</ServerVersion>
       <DefaultEngine>MyISAM</DefaultEngine>
@@ -747,43 +747,21 @@
     </collation>
     <user id="234" parent="1" name="moxie">
       <Host>%</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-ALL PRIVILEGES|moxie
-ALL PRIVILEGES|moxie\_%
-</ObjectGrants>
     </user>
     <user id="235" parent="1" name="moxie">
       <Host>www.schoolmanagement.com</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-ALL PRIVILEGES|moxie!
-ALL PRIVILEGES|moxie\_%!
-</ObjectGrants>
     </user>
     <user id="236" parent="1" name="mysql.session">
       <Host>localhost</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-ALL PRIVILEGES|mysql!
-SELECT|performance_schema
-SELECT|mysql.user
-</ObjectGrants>
     </user>
     <user id="237" parent="1" name="mysql.sys">
       <Host>localhost</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-ALL PRIVILEGES|sys!
-SELECT|sys.sys_config
-</ObjectGrants>
     </user>
     <user id="238" parent="1" name="root">
       <Host>127.0.0.1</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-</ObjectGrants>
     </user>
     <user id="239" parent="1" name="root">
       <Host>localhost</Host>
-      <ObjectGrants>ALL PRIVILEGES!
-ALL PRIVILEGES|mysql!
-</ObjectGrants>
     </user>
     <table id="240" parent="2" name="admin">
       <Engine>InnoDB</Engine>

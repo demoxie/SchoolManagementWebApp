@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Continous Assessment Score Sheet</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../Stylesheets/top-nav-bar.css">
     <link rel="stylesheet" href="../Pluggins/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Pluggins/awesome/css/all.min.css">
     <link rel="icon" href="../../Backend/Src/Icons/logo.jpg">
-    <link rel="stylesheet" href="../Stylesheets/ca_entry_form.css">
     <script src="../Pluggins/Jquery/jquery-3.5.1.min.js"></script>
+    <script src="../Scripts/access.js"></script>
     <script src="../Scripts/fetch_subjects.js"></script>
     <script src="../Scripts/fetch_session.js"></script>
     <script src="../Scripts/termly_assessment_form.js"></script>
     <script src="../Scripts/assessment_form_entry.js"></script>
+    <script src="../Scripts/login.js"></script>
     <script src="../Pluggins/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Pluggins/awesome/js/all.min.js"></script>
     <!--<script src="/Backend/ClassLibrary/fetch_class.php"></script>-->
     <style>
         * {
@@ -20,60 +25,83 @@
         }
 
         body {
-            font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-
-            font-weight: bold;
+            padding: 0;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: stretch;
         }
-        html{
+
+        html,
+        body {
+            font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
             font-size: calc(13px - 1%);
         }
-        
-        .upper-save, .upper-calculate {
-            margin-left: 10px;
+
+        .table thead th, .table {
+            border: 2px solid #0d152a;
         }
 
-        .calculate {
-            margin-right: 5px;
-        }
-
-        .pagination-container {
-            margin-right: -30px;
-            float: right;
-            padding-right: 0;
-        }
-
-        .theading {
+        .form-inline {
             display: flex;
-            justify-content: space-between;
-            justify-items: baseline;
-            align-content: stretch;
+            flex-flow: column;
+            justify-content: center;
+            align-items: stretch;
+            margin: 4rem auto;
         }
 
-        .btn {
-            background-color: darkgreen;
+        input.form-control {
+            background-color: oldlace;
+        }
+
+
+        .above_table_row {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: space-between;
+            justify-items: center;
+            align-content: center;
+            grid-row-gap: 1rem;
+
+        }
+
+        select.form-select,
+        button.btn {
+            background-color: orangered;
+            border: 3px solid #0d152a;
+            border-radius: 1.5rem;
+            color: white;
+
+        }
+
+
+        select.form-select {
+            width: 20rem;
+            padding-block: 0.4rem;
+            padding-inline: 1rem;
+        }
+
+        .upper-save, .upper-calculate, .save, .calculate {
+            width: 10rem;
         }
 
         li a.page-link {
-            color: forestgreen;
+            color: orangered;
         }
 
-        input {
-            font-size: 10px;
-            font-family: "Times New Roman", serif;
-        }
-
-        select, .btn {
-            border: none;
+        select.form-select {
             color: white;
+            border-radius: 1.5rem;
         }
 
-        select, .btn:hover {
-            color: white;
-            background: limegreen;
+        select.form-select:hover,
+        button.btn:hover {
+            color: orangered;
+            background: #ccc;
+            border-color: orangered;
 
         }
 
-       
 
         select:focus,
         select:active,
@@ -87,54 +115,113 @@
             outline: 0 !important;
             box-shadow: none !important;
         }
-        table thead th:nth-child(1){
-            width: 4vw;
+
+        table thead th:nth-child(2) {
+            font-size: 0.9rem;
+            font-weight: bolder;
         }
-        
-        table thead th:nth-child(2){
-            width: 19vw;
-            font-size: 13px;
+
+
+        table, th, td {
+            text-align: center;
+            vertical-align: middle;
         }
-        table tr td input{
-            padding: 0;
-        }
-        table tr td{
-            padding: 0;
-        }
-        .choice{
+
+
+        .first_row {
             display: grid;
-            grid-template-columns: auto auto auto auto;
-            justify-content: stretch;
-            justify-items: baseline;
-            margin: auto;
-            grid-gap: 1em;
+            grid-template-columns: 23% 23% 23% 23%;
+            justify-content: center;
+            justify-items: center;
+            grid-column-gap: 1em;
+            margin: 2rem auto;
         }
-        @media screen and (max-width: 560px){
-            .choice{
+
+        .middle-row {
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            grid-column-gap: 1rem;
+            padding: 2rem;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            .first_row {
+                min-width: 100%;
+                display: grid;
+                grid-template-columns: 100vw;
+                grid-row-gap: 10px;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+
+            }
+
+            .middle-row {
+                display: grid;
                 grid-template-columns: auto;
+                justify-content: center;
+                align-items: baseline;
             }
-        }
-        @media screen and (min-width: 561px) and  (max-width: 720px){
-            .choice{
-                grid-template-columns: auto auto;
+
+            .above_table_row {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
             }
+
+            .bottom_row {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .btn-container {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: baseline;
+            }
+
+
         }
+
 
     </style>
 
 </head>
+
 <body>
-<form class="form-inline col-10" id="term_assessment_entry_form" method="post" enctype="multipart/form-data" role="form">
-    <div class="container result" id="result"></div>
-
-    <div class="theading col-12">
-        <div class="title col-6">
-            <h2>AG MODERN NUR/PRI/SEC SCHOOL</h2>
-        </div>
-
+<!--Top Nav-bar-->
+<div id="top-nav-bar">
+    <div id="nav-item-container">
+        <a class="btn nav-btn"><i class="fas fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;Home</a>
+        <a class="btn nav-btn" href="../Dashboard/index.php"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
+    </div>
+    <div id="user">
+        <a class="btn nav-btn"><i class="fas fa-user-circle" id="logout"></i>&nbsp;&nbsp;&nbsp;logout</a>
     </div>
 
-    <div class="choice g-3">
+</div>
+<!--Ends here-->
+<form class="form-inline col-11" id="term_assessment_entry_form" method="post" enctype="multipart/form-data"
+      role="form">
+    <div class="container result" id="result"></div>
+
+    <div class="first_row col-12">
         <select name="class" class="form-select myclass col" id="myclass" aria-label="Default select example">
             <option selected disabled>CLASS</option>
 
@@ -159,24 +246,31 @@
     <hr>
 
 
-    <div class="theading row col-12">
-        <div class="className col"><h6><strong id="one">CLASS:</strong> <u><b id="display_class"></b></u></h6></div>
-        <div class="formaster col"><h6><strong id="two">FORM MASTER:</strong> <u><b id="form"></b></u></h6></div>
-        <div class="date col"><h6><strong id="three">DATE: </strong></h6></div>
+    <div class="middle-row col-12">
+        <div class="className">
+            <h6><strong id="one">CLASS:</strong> <u><b id="display_class"></b></u></h6>
+        </div>
+        <div class="formaster">
+            <h6><strong id="two">FORM MASTER:</strong> <u><b id="form"></b></u></h6>
+        </div>
+        <div class="date">
+            <h6><strong id="three">DATE: </strong><u><b id="time"></b></u></h6>
+        </div>
     </div>
     <hr>
+    <hr>
+    <div class="above_table_row col-12">
+        <div class="btn-container">
+            <button type="button" class="btn upper-calculate">Calculate</button>
+            <button type="button" class="btn upper-save">Save</button>
+        </div>
 
-    <div class="row">
-        <button type="button" class="btn   upper-calculate col-2">Calculate</button>
-        <button type="button" class="btn upper-save col-2">Save</button>
-    </div>
-    <hr>
-    <div class="theading row col-12">
-        <div class="search col-3">
+
+        <div class="search">
             <input type="text" class="form-control" id="search" name="search" placeholder="Search Names">
             <br>
         </div>
-    </div>
+
         <ul class="pagination pagination-md justify-content-end">
             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -184,10 +278,12 @@
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
-    <div class="table-responsive-lg">
+
+    </div>
+    <div class="table-responsive" style="overflow:auto">
         <table class="table table-hover table-bordered" id="ca_table">
             <thead>
-            <tr style="background-color: forestgreen;color: whitesmoke;">
+            <tr style="background-color: orangered;color: whitesmoke;">
                 <th class="thed">#</th>
                 <th class="th_names">NAMES</th>
                 <th class="th_ca1">1st CA</th>
@@ -207,6 +303,9 @@
 
             </tfoot>
         </table>
+
+    </div>
+    <div class="container bottom_row">
         <ul class="pagination pagination-md justify-content-end">
             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -214,21 +313,23 @@
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
+        <div class="btn-container">
+
+            <button type="button" class="btn  calculate">Calculate</button>
+            <button type="button" class="btn save">Save</button>
+        </div>
+
+
     </div>
-    <hr>
-    <button type="button" class="btn  calculate col-2">Calculate</button>
-    <button type="button" class="btn save col-2">Save</button>
-
-
 </form>
 <script>
     $(document).ready(function () {
         let d = new Date();
         // alert(d);
-        $("div.date h6 strong").append(d.toDateString());
+        $("b#time").append(d.toDateString());
 
 
-        $("#search").on("keyup",()=>{
+        $("#search").on("keyup", () => {
 
             const value = $(this).val().toLowerCase();
             $("tbody tr").filter(function () {
@@ -237,10 +338,7 @@
         });
 
     });
-
-
 </script>
 </body>
 
-<!-- Mirrored from www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_form_inline&stacked=h by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Sep 2020 08:11:15 GMT -->
 </html>

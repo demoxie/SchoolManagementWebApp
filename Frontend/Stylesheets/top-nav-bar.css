@@ -1,0 +1,78 @@
+#top-nav-bar {
+    background-color: #0d152a;
+    height: 13vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav-item-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    grid-column-gap: 20px;
+}
+
+#nav-item-container .nav-btn {
+    border: 2px solid white;
+    border-radius: 1.5rem;
+    padding: 7px 30px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+#nav-item-container .nav-btn:hover {
+    border-color: orangered;
+    color: white;
+}
+
+#user {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+#user .nav-btn {
+    color: white;
+}
+
+#user .nav-btn:hover {
+    color: white;
+    font-weight: bolder;
+    opacity: 0.9;
+}
+
+@media screen and (max-width: 600px) {
+    #top-nav-bar {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-row-gap: 10px;
+        height: auto;
+        padding-block: 10px;
+    }
+
+    #nav-item-container {
+        display: grid;
+        grid-template-columns: 80%;
+        grid-row-gap: 10px;
+    }
+
+    #user {
+        display: grid;
+        grid-template-columns: 80%;
+        justify-content: center;
+    }
+
+    #user .nav-btn {
+        border: 2px solid white;
+        border-radius: 1.5rem;
+        padding: 7px 30px;
+
+    }
+
+    #user .nav-btn:hover {
+        border-color: orangered;
+    }
+}

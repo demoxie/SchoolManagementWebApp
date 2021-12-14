@@ -1,0 +1,56 @@
+h2 {
+    text-align: center;
+    color: red;
+    text-shadow: -1px 0 green, 0 1px green, 1px 0 green, 0 -1px green;
+}
+
+.schoolname {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.assessment-tiles {
+    margin: 20px 20px;
+    text-align: center;
+    font-stretch: normal;
+    background-color: #ccc;
+    color: red;
+    border: 3px solid red;
+}
+
+.assessment-tiles:hover {
+    background-color: orangered;
+    color: white;
+    border-color: gray;
+}
+
+.tag {
+    margin-left: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+h6 {
+    display: inline-block;
+    text-align: left;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px 25px;
+    color: whitesmoke;
+}
+
+.promte {
+    background-color: green;
+}
+
+.demote {
+    background-color: orange;
+}
+
+.withdraw {
+    background-color: orangered;
+}
+
+.expel {
+    background-color: red;
+}
